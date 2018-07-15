@@ -1,0 +1,134 @@
+html{
+  width:100%;
+  height:100%;
+  }
+  body{
+    width:100%;
+    height:100%;
+}
+#main-head{
+font-family: 'Chela One', cursive;
+}
+#Log-head{
+font-family: 'Arimo', sans-serif;
+}
+#submit-btn{
+  font-family: 'Arimo', sans-serif;
+}
+.row{
+  width:100%;
+}
+.headblock{
+  position: relative;
+  background-color:black;
+  color:white;
+  box-shadow: 0px 3px 2px 2px rgb(0, 0, 0);
+  top:0px;
+  height:14.0vh;
+  line-height: 200px;
+}
+.main-heading{
+  position: relative;
+display: inline-block;
+top:25%;
+line-height: normal;
+font-size: 2.5em;
+}
+
+.home{
+  height:100%;
+  width:100%;
+  box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
+  background:url("assets/top.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+
+}
+.log-head{
+  color:white;
+}
+.crd{
+  position: relative;
+  display:block;
+   margin:auto;
+}
+@media only screen and (max-width:767px){
+  .signup-form{
+    position: relative;
+    display:block;
+    top:16%;
+    left:5%;
+    padding:10px;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 5%;
+    margin-left: :40px;
+    box-shadow:
+   }
+   .login-form{
+     position: relative;
+     display:block;
+     top:16%;
+     left:5%;
+     padding:10px;
+     background-color: rgba(0,0,0,0.8);
+     border-radius: 5%;
+     margin-left: :40px;
+     box-shadow:
+   }
+}
+@media only screen and (min-width:768px){
+  .signup-form{
+    position: relative;
+    display:block;
+    top:15%;
+    padding:10px;
+    box-shadow: 0px 0px 6px 6px rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 5%;
+   }
+   .login-form{
+     position: relative;
+     display:block;
+     top:50%;
+     left:5%;
+     padding:10px;
+     background-color: rgba(0,0,0,0.8);
+     border-radius: 5%;
+     margin-left: :40px;
+     box-shadow:
+   }
+   .display-login{
+     position: relative;
+     border-radius:7%;
+     padding-left: 20px;
+     position: relative;
+     top:40%;
+   }
+}
+#submit-btn{
+  position: relative;
+  width:50% ;
+  border-radius: 5px;
+  padding:5px;
+  margin:5px;
+  background-color:black;
+  border: #000 2px;
+  color:white;
+  cursor:pointer;
+}
+.inputs{
+  width:70%;
+  border-radius: 5px;
+  padding:5px;
+  margin:5px;
+}
+
+.footblock{
+  position: relative;
+  background-color: black;
+  color:white;
+  padding-top:2%;
+  box-shadow: 0px -2px 2px 2px rgb(0,0,0);
+
+}
