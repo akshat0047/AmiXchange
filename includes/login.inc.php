@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if (isset($_POST["submit"])){
 
   include_once "db.inc.php";
@@ -13,7 +13,7 @@ if (isset($_POST["submit"])){
  exit();
   }
   else{
-       $sql="SELECT * FROM user WHERE user_uid='$unm'";
+       $sql="SELECT * FROM users WHERE user_uid='$unm'";
        $result=mysqli_query($conn,$sql);
        $resultcheck=mysqli_num_rows($result);
        if($result<1){
@@ -21,21 +21,24 @@ if (isset($_POST["submit"])){
          exit();
        }
        else{
-         if($row=mysqli_fetch_assoc($result)){
-           //de-hashing
-           $hashedPwdCheck=password_verify($pwd,$row["user_pwd"]);
-           if($hashedPwdCheck == false){
-             header("Location: ../login.php?login=error");
+            $row=mysqli_fetch_assoc($result);
+             $_SESSION["u_id"]= $row["user_uid"];
+             $_SESSION["u_first"]= $row["user_first"];
+             $_SESSION["u_last"]= $row["user_last"];
+             $_SESSION["u_email"]= $row["user_email"];
+             $_SESSION["u_course"]= $row["user_course"];
+             $_SESSION["u_semester"]= $row["user_semester"];
+             header("Location: ../profile.php?login=success");
              exit();
-           }
-           else if($hashedPwdCheck == true){
-             //log in the users
-             $_SESSION["u_id"]= $row[]
-           }
+
+
          }
        }
-  }
+
 }
   else{
-    header(location: ../login.php)
+    header("Location: ../index.php?login=success");
+    exit();
   }
+
+?>

@@ -13,7 +13,7 @@ $first=mysqli_real_escape_string($conn,$_POST["firstname"]);
 $last=mysqli_real_escape_string($conn,$_POST["lastname"]);
 
 if(empty($unm)||empty($pwd)||empty($email)||empty($course)||empty($first)||empty($last)){
-  header("Location: ../index?signup=empty");
+  header("Location: ../signup.php?signup=empty");
   exit();
 }
 else{
@@ -21,13 +21,13 @@ else{
 
       if(!preg_match("/^[a-zA-Z]*$/",$first)||!preg_match("/^[a-zA-Z]*$/",$course)||!preg_match("/^[a-zA-Z]*$/",$last))
       {
-        header("Location: ../index.php?signup=invalid");
+        header("Location: ../signup.php?signup=invalid");
         exit();
       }
       else{
         //checking Email
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        header("Location ../index.php?signup=email");
+        header("Location ../signup.php?signup=email");
         exit();
       }
       else{
@@ -37,7 +37,7 @@ else{
            $resultCheck = mysqli_num_rows($result);
 
            if($resultCheck > 0){
-             header("Location: ../index.php?signup=usertaken");
+             header("Location: ../signup.php?signup=usertaken");
              exit();
            }
            else{
@@ -47,7 +47,7 @@ else{
              $sql = "INSERT INTO users(user_uid,user_pwd,user_first,user_last,user_email,user_course,user_semester)VALUES('$unm','$pwd','$first','$last','$email','$course','$sem');";
              mysqli_query($conn,$sql);
 
-             header("Location: ../index.php?signup=success");
+             header("Location: ../login.php?signup=success");
              exit();
            }
       }
@@ -57,7 +57,7 @@ else{
 
 } else{
 
-header("Location: ../index.php?signup=notset");
+header("Location: ../signup.php?signup=notset");
 exit();
 }
 
