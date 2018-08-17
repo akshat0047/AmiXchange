@@ -15,19 +15,19 @@
 
   <header class="container-fluid  headblock">
 <div class="row">
-  <div class="col-md-3 col-lg-3 text-center">
+  <div class=" col-md-3 col-lg-3 text-center">
     <?php if(!isset($_SESSION['u_id'])){
-      echo '<a href="signup.php"><span class="account-control btn-info">SIGN-UP</span></a>';
+      echo '<a href="signup.php" class="desktop"><span class="account-control btn-info">SIGN-UP</span></a>';
     }?>
   </div>
 
-  <div class="col-sm-12 col-md-6 col-lg-6 text-center">
-    <h3 id="main-head" class="main-heading">AMITY STATIONARY STORE</h3>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center">
+    <h3 id="main-head" class="main-heading">AMITY BOOK STORE</h3>
   </div>
 
   <div class="col-md-3 col-lg-3 text-center">
     <?php if(!isset($_SESSION['u_id'])){
-    echo '<a  href="login.php" ><span class="account-control btn-info">LOGIN</span></a>';
+    echo '<a  href="login.php" class="desktop"><span class="account-control btn-info">LOGIN</span></a>';
   }?>
   </div>
 

@@ -12,20 +12,18 @@ $dptype= $_FILES["displaypic"]["type"];
 
 $namelogy=explode('.',$dpname);
 $dpext= strtolower(end($namelogy));
-$allowtype=array('jpg','jpeg','png');
+$allowtype=array('jpg');
 
 if(in_array($dpext,$allowtype))
 {
   if($dperror==0){
-      if($dpsize < 3000){
-         $dpnewname= uniqid('',true).'.'.$dpext;
-         $dpdestination="assets/".$dpnewname;
-         move_uploaded_file($dptmpname,$dpdestination);
-         $sql="INSERT INTO extra(user_dp)VALUES($dpnewname);";
-         $result=mysqli_query($conn,$sql);
-         $dps=mysqli_fetch_assoc($result);
-         $_SESSION['u_dp']=$dps["user_dp"];
-         header("Location: profile.php?upload=success")
+      if($dpsize > 3000){
+
+         $dpdestination="../assets/member_dp/";
+         $dpname=$_SESSION['u_id'].".".$dpext;
+         move_uploaded_file($dptmpname,$dpdestination.$dpname);
+         $_SESSION['u_dp']=$dpname;
+         header("Location: ../profile.php?upload=success");
       }
       else{
         echo "FIle size too big";
@@ -38,7 +36,10 @@ if(in_array($dpext,$allowtype))
 else{
   echo "File type not allowed";
 }
-header("Location: profile.php?upload=np");
 }
+else{
+header("Location: ../profile.php?upload=no");
+}
+
 
 ?>

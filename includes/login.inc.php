@@ -3,7 +3,7 @@ session_start();
 if (isset($_POST["submit"])){
 
   include_once "db.inc.php";
-
+  include_once "dp.inc.php";
   $unm=mysqli_real_escape_string($conn,$_POST["username"]);
   $pwd=mysqli_real_escape_string($conn,$_POST["password"]);
 
@@ -22,12 +22,14 @@ if (isset($_POST["submit"])){
        }
        else{
             $row=mysqli_fetch_assoc($result);
+            $_SESSION["id"]=$row["user_id"];
              $_SESSION["u_id"]= $row["user_uid"];
              $_SESSION["u_first"]= $row["user_first"];
              $_SESSION["u_last"]= $row["user_last"];
              $_SESSION["u_email"]= $row["user_email"];
              $_SESSION["u_course"]= $row["user_course"];
              $_SESSION["u_semester"]= $row["user_semester"];
+             $_SESSION['u_dp']=$dpname;
              header("Location: ../profile.php?login=success");
              exit();
 
@@ -37,7 +39,7 @@ if (isset($_POST["submit"])){
 
 }
   else{
-    header("Location: ../index.php?login=success");
+    header("Location: ../index.php?login=crashed");
     exit();
   }
 
