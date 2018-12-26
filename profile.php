@@ -1,7 +1,7 @@
 <?php include_once "header.php";
 ?>
 
-<section class="container-fluid  profile-section ">
+<section class=" profile-section ">
 
 
 
@@ -16,7 +16,7 @@
         else{
           echo "<img src='assets/akshat.jpg' class=' profile-dp text-center'/>";
         }?></label>
-      <input class="profile-upload-hide dp" type="file" id="profiledp"  name="displaypic" ></input>
+      <input class="profile-upload-hide dp" type="file" id="profiledp"  name="displaypic" />
       <button type="submit" name="submit">SUBMIT</button>
     </form>
 
@@ -24,8 +24,8 @@
 
   <div  class=" offset-md-1 offset-lg-1  col-md-4 col-lg-4 profile-activity-box-desktop  desktop">
       <ul >
-        <a href="includes/advertisement.inc.php" ><ui id="activity-button1" class="profile-activity-desktop btn-warning text-center">MY ADDS</ui></a>
-        <a href="add.php" ><ui id="activity-button2" class="profile-activity-desktop btn-warning text-center">POST AN ADD</ui></a>
+        <a href="includes/advertisement.inc.php" ><li id="activity-button1" class="profile-activity-desktop btn-warning text-center">MY ADDS</li></a>
+        <a href="add.php" ><li id="activity-button2" class="profile-activity-desktop btn-warning text-center">POST AN ADD</li></a>
       </ul>
       </div>
 
@@ -41,6 +41,7 @@
            <span class="infos text-center">COURSE:</span>
            <span class="infos text-center">SEMESTER:</span>
            <span class="infos text-center">USERNAME:</span>
+           <span class="infos text-center">PHONE:</span>
          </div>
 
       <div id="info-ans" class="col-6 col-sm-6 col-md-6 col-lg-6 ">
@@ -48,6 +49,7 @@
               <span class="infos text-center"> <?php echo $_SESSION['u_course']; ?></span>
               <span class="infos text-center"> <?php echo $_SESSION['u_semester']; ?></span>
               <span class="infos text-center"> <?php echo $_SESSION['u_id']; ?></span>
+              <span class="infos text-center"> <?php echo $_SESSION['ph_no']; ?></span>  
         </div>
       </div>
 

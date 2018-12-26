@@ -17,6 +17,7 @@ include_once "header.php";
       <input class="inputs" type="text" name="email" placeholder="Email"/><br/>
       <input class="inputs" type="text" name="course" placeholder="Course"/><br/>
       <input class="inputs" type="text" name="semester" placeholder="Semester"/><br/>
+      <input class="inputs" type="text" name="phone" placeholder="Phone Number"/><br/>
       <button id="submit-btn"  name="submit" type="submit" >SUBMIT</button>
   </form>
 

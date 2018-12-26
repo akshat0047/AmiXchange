@@ -11,15 +11,16 @@ $course= mysqli_real_escape_string($conn,$_POST["course"]);
 $sem= mysqli_real_escape_string($conn,$_POST["semester"]);
 $first=mysqli_real_escape_string($conn,$_POST["firstname"]);
 $last=mysqli_real_escape_string($conn,$_POST["lastname"]);
+$phone=mysqli_real_escape_string($conn,$_POST["phone"]);
 
-if(empty($unm)||empty($pwd)||empty($email)||empty($course)||empty($first)||empty($last)){
-  header("Location: ../signup.php?signup=empty");
+if(empty($unm)||empty($pwd)||empty($email)||empty($course)||empty($sem)||empty($first)||empty($last)||empty($phone)){
+  header("Location: ../signup.php?signup=emptyx");
   exit();
 }
 else{
       //check if iput characters are valid
 
-      if(!preg_match("/^[a-zA-Z]*$/",$first)||!preg_match("/^[a-zA-Z]*$/",$course)||!preg_match("/^[a-zA-Z]*$/",$last))
+      if(!preg_match("/^[a-zA-Z]*$/",$first)||!preg_match("/^[a-zA-Z]*$/",$last))
       {
         header("Location: ../signup.php?signup=invalid");
         exit();
@@ -32,7 +33,7 @@ else{
       }
       else{
 
-           $sql= "SELECT * FROM users WHERE USERNAME='$unm'";
+           $sql= "SELECT * FROM users WHERE user_uid='$unm'";
            $result= mysqli_query($conn,$sql);
            $resultCheck = mysqli_num_rows($result);
 
@@ -44,7 +45,7 @@ else{
              //hashing Password
              $hashedPwd= password_hash($pwd, PASSWORD_DEFAULT);
              //insert the user into database
-             $sql = "INSERT INTO users(user_uid,user_pwd,user_first,user_last,user_email,user_course,user_semester)VALUES('$unm','$pwd','$first','$last','$email','$course','$sem');";
+             $sql = "INSERT INTO users(user_uid,user_pwd,user_first,user_last,user_email,user_course,user_semester,user_phone)VALUES('$unm','$pwd','$first','$last','$email','$course',$sem,$phone);";
              mysqli_query($conn,$sql);
 
              header("Location: ../login.php?signup=success");

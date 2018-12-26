@@ -19,21 +19,20 @@ $result=mysqli_query($conn,$sql);
 $resultcheck=mysqli_num_rows($result);
 $limit=ceil($resultcheck/6);
 
-echo('<section class="container-fluid store">
+echo('<section class="store">
 <div class="row">');
 
 while($row=mysqli_fetch_assoc($result))
 {
-    echo('  <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center  ">
+    echo('  <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center  ad-card-column">
 
       <div class="ad-card">');
         echo('<img src="assets/books/'.$row['book_pic'].'" class="img-fluid ad-pic"/>
         <div class="ad-card-body text-center">');
-          echo('<h4>'.$row["book_name"].'</h3><hr class="ad-card-divider"/>');
-          echo('<p>BY - '. $row["writer_name"].'<br/> EDITION - '
-          . $row["edition"].'<br/>'.
-            $row["book_description"].'</p>
-          <a href="#" class="btn btn-primary " >Know More</a>
+          echo('<p class="ad-head">'.$row["book_name"].'</p><hr class="ad-card-divider"/>');
+          echo('<p class="ad-info">BY - '. $row["writer_name"].'<br/> EDITION - '
+          . $row["book_edition"].'<br/>'.$row['book_price'].'<br/></p>
+          <a href="know_more.php?user='.$row['user_uid'].'&book='.$row['book_name'].'" class="btn-sm btn-primary btn-know-more" >Know More</a>
         </div>
       </div>
     </div>');
@@ -57,14 +56,13 @@ if($page>0 && $page<$limit){echo('.'.($page+1).'.');}
 else{echo("$page");}
 echo("' class='pagin-element'><i class='fas fa-angle-right'></i></a>
 </span>
-</ul>");
+</ul><br/>");
 
-?>
 
+include_once "footer.php";
+ ?>
 
 
 </section>
 
-<?php
-include_once "footer.php"
- ?>
+

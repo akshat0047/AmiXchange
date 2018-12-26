@@ -10,7 +10,7 @@ else{
   $page=1;
 }?>
 
-<section class="container-fluid  myads-section ">
+<section class="  myads-section ">
 
 <div class="ad-block d-flex">
 
@@ -18,18 +18,18 @@ else{
     <?php
     for($x=(($page-1)*6);$x<($page*6);$x++)
     {
-      if(isset($_SESSION['book_name']))
+      if(isset($_SESSION['book_name'][$x]))
       {
-    echo('  <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center  ">
+    echo('  <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center  ad-card-column">
 
         <div class="ad-card">');
-          echo('<img src="assets/books/'.$_SESSION['book_pic'][5].'" class="img-fluid ad-pic"/>
+          echo('<img src="assets/books/'.$_SESSION['book_pic'][$x].'" class="img-fluid ad-pic"/>
           <div class="ad-card-body text-center">');
-            echo('<h4>'.$_SESSION["book_name"][$x].'</h3><hr class="ad-card-divider"/>');
-            echo('<p>BY - '. $_SESSION["writer_name"][$x].'<br/> EDITION - '
-            . $_SESSION["edition"][$x].'<br/>'.
-              $_SESSION["book_description"][$x].'</p>
-            <a href="#" class="btn btn-primary " >Know More</a>
+            echo('<p class="ad-head">'.$_SESSION["book_name"][$x].'</p><hr class="ad-card-divider"/>');
+            echo('<p class="ad-info">BY - '. $_SESSION["writer_name"][$x].'<br/> EDITION - '
+            . $_SESSION["edition"][$x].'<br/>'.$_SESSION['book_price'][$x].'<br/>'.
+              $_SESSION["book_description"][$x].'<br/></p>
+            <a href="#" onclick="del('.$_SESSION['idno'][$x].')" class="btn-sm btn-danger " >DELETE</a>
           </div>
         </div>
       </div>');
@@ -56,12 +56,28 @@ if($page>0 && $page<$limit){echo('.'.($page+1).'.');}
 else{echo("$page");}
 echo("' class='pagin-element'><i class='fas fa-angle-right'></i></a>
 </span>
-</ul>");
+</ul><br/>");
 ?>
 
+<div id="dialog" class="delete-dialog text-center">
+</div>
 
-</section>
+<script>
+ function del(id){
+  document.getElementById('dialog').innerHTML= '<p class="delete-warning">THIS ADVERTISEMENT WILL BE DELETED</p><br/>'+
+          '<a href="includes/delete.inc.php?id='+id+'" ><span class="btn-sm btn-danger btn-dialog">DELETE</span></a><span  onclick="go_back()" class="btn-sm btn-success btn-dialog">GO BACK</span>';
+  document.getElementById('dialog').style.display="block";
+  document.getElementsByClassName('ad-block')[0].style.opacity="0.7";     
+ }
+
+ function go_back(){
+  document.getElementById('dialog').style.display="none";
+   document.getElementsByClassName('ad-block')[0].style.opacity="1";
+ }
+</script>
+
 
 
 <?php
 include_once "footer.php" ?>
+</section>

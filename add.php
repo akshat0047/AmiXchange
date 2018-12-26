@@ -11,6 +11,7 @@
       <input class="inputs" type="text" name="writer" placeholder="Writer Name" required/><br/>
       <input class="inputs" type="text" name="edition" placeholder="Edition" required/><br/>
       <input class="inputs" type="date" name="tsp" placeholder="Time Since Purchase" required/><br/>
+      <input class="inputs" type="text" name="price" placeholder="Book Price" required/><br/>
       <input class="inputs" type="textarea" name="description" placeholder="Description" required/><br/>
       <input class="inputs file_input" id="bookfile" type="file" name="bookpic" placeholder="Select a picture" required/><br/>
       <label class="inputs file_label" for="bookfile">CHOOSE A PICTURE</label>

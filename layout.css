@@ -7,23 +7,24 @@ html{
     height:100%;
     overflow-x: hidden;
 }
-a{
+a, u{
   text-decoration: none !important;
 }
+
 #main-head{
 font-family: 'Chela One', cursive;
 }
 #Log-head{
-font-family: 'Arimo', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 #submit-btn{
-  font-family: 'Arimo', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 #info-que{
   font-family: 'Chela One', cursive;
 }
 #info-ans{
-  font-family: 'Arimo', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 #activity-button1{
   font-family: 'Oswald', sans-serif;
@@ -36,7 +37,7 @@ font-family: 'Arimo', sans-serif;
   position: relative;
   background-color:rgba(0, 0, 0,0.9);
   color:white;
-  box-shadow: 0px 3px 2px 2px rgb(0, 0, 0);
+  box-shadow: 0px 3px 2px 2px rgba(0, 0, 0,0.2);
   top:0px;
   height:20%;
  overflow: hidden;
@@ -88,9 +89,16 @@ white-space: nowrap;
   padding:10px;
   background-color: rgba(0,0,0,0.8);
   border: solid black 1px;
-  box-shadow:
+  box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);
 }
-
+.forgot-password-form{
+  position: relative;
+  display:block;
+  padding:10px;
+  background-color: rgba(0,0,0,0.8);
+  border: solid black 1px;
+  box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);
+}
 @media only screen and (max-width:767px){
   .main-heading{
     font-size: 1.6em;
@@ -102,7 +110,11 @@ white-space: nowrap;
     display: block;
   }
   .login-form{
+    left:5%;
     top:65%;
+  }
+  .forgot-password-form{
+    top:75%;
   }
   .profile-activity-box-mobile{
     position: relative;
@@ -169,6 +181,9 @@ white-space: nowrap;
   }
   .login-form{
     top:95%;
+  }
+  .forgot-password-form{
+    top:200%;
   }
   .main-heading{
     font-size: 2.0em;
@@ -248,20 +263,23 @@ white-space: nowrap;
   background-repeat: no-repeat;
   background-size:cover;
   background-attachment: fixed;
-
-
 }
-.myads-section{
+.profile-section-know-more{
   position: relative;
   width:100%;
-  height:150%;
-
-  box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
+  height:70%;
   background:url("assets/profile.png");
   background-position: center ;
   background-repeat: no-repeat;
   background-size:cover;
   background-attachment: fixed;
+}
+.myads-section{
+  position: relative;
+  width:100%;
+  height:auto;
+  box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
+  background-image:linear-gradient(to bottom,rgb(43, 133, 218),rgb(77, 106, 133))
 }
 #submit-btn{
   position: relative;
@@ -295,7 +313,9 @@ white-space: nowrap;
   position: relative;
   background-color: black;
   color:white;
-  padding-top:7%;
+  padding-top:3%;
+  width:100%;
+  top:5px;
   padding-bottom: 3%;
   box-shadow: 0px -2px 2px 2px rgb(0,0,0);
 }
@@ -314,6 +334,18 @@ white-space: nowrap;
   white-space: nowrap;
   top:25px;
 }
+.profile-info-know-more{
+  position: relative;
+  border-radius:10px;
+  background-color:rgba(0,0,0,0.8);
+  color: white;
+  height:60%;
+  padding: 20px;
+  box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.4);
+  white-space: nowrap;
+  width:100%;
+  top:50px;
+}
 .infos{
   position: relative;
   display:block;
@@ -321,13 +353,10 @@ white-space: nowrap;
 }
 
 .store{
-  height:100%;
   width:100%;
+  height:auto;
   box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
-  background:  url("assets/bookstore.jpg");
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-attachment: fixed;
+  background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
 
 }
 .image-box{
@@ -350,7 +379,35 @@ white-space: nowrap;
   display: none;
 }
 
-
+.profile-dp-know-more{
+  position: relative;
+  margin: auto;
+  display:block;
+  width: 60%;
+  height:auto;
+  border-radius: 15px;
+  box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.1);
+}
+.delete-dialog{
+  position: absolute;
+  display:none;
+  width:30%;
+  height:14%;
+  padding:16px;
+  border-radius:5px;
+  background-color: rgba(251,251,251,0.9);
+  margin: auto;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);
+}
+.btn-dialog{
+  margin:40px;
+  cursor:pointer;
+  font-family: 'Oswald', sans-serif;
+}
 /*MY ADDS SECTION
 ==================*/
 
@@ -359,15 +416,14 @@ white-space: nowrap;
   position: relative;
   top: 25px;
   border-radius: 10px;
-  background-color: rgba(254,254,254,0.7);
   width:90%;
-
+  transition: all 1s;
   margin:auto;
   padding: 25px;
 }
 .ad-pagin{
   position:relative;
-  top:5%;
+  top:20px;
   padding:4px;
 }
 .pagin-element-block{
@@ -399,22 +455,44 @@ white-space: nowrap;
 }
 .ad-card{
   position: relative;
-  width:65%;
+  width:100%;
   height: auto;
   margin:auto;
-  margin-top: 25px;
-  background-color: rgba(0,0,0,0.8);
+  margin-top: 30px;
   border-radius: 7%;
+}
 
+.know-more-card{
+  position: relative;
+  width:65%;
+  height: auto;
+  color:black;
+  border-radius: 7%;
+  margin:30px;
 }
 .ad-card-body{
   padding: 5px;
   margin:auto;
   color:white;
 }
+.ad-card-column{
+  margin-bottom:60px;
+}
+.btn-know-more{
+  color:black;
+  background-color: rgba(251,251,251,0.7);
+  font-family: 'Oswald', sans-serif;
+}
+
+.know-more-card-body{
+  padding: 5px;
+  margin:auto;
+}
 .ad-pic{
-  border-top-left-radius: 7%;
-  border-top-right-radius: 7%;
+  width:55%;
+  height:auto;
+  margin:auto;
+  border-radius:7%;
 }
 .ad-card-divider{
   background-color: white;
@@ -423,4 +501,77 @@ white-space: nowrap;
 .ad-row{
   position: relative;
   top:10%;
+}
+.ad-head{
+ font-size: 0.9em;
+ font-family: 'Merriweather Sans', sans-serif;
+}
+.ad-info{
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 0.7em;
+}
+/*SLICK CAROUSEL*/
+
+.slick{
+  position: relative;
+  width:100%;
+  height:auto;
+  padding:10px;
+  background-image:linear-gradient(to bottom, rgb(171, 206, 179),rgb(153, 184, 157));
+  box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.3);
+}
+.slick-prev{
+   position: absolute;
+   top:47%;
+   left:3%;
+   z-index:5;
+   background-color:rgba(255, 255, 255, 0.8);
+   width:25px;
+   height:auto;
+   border-radius:3px;
+   box-shadow:0px 0px 2px 2px rgba(0,0,0,0.1);
+}
+.slick-next{
+  position: absolute;
+  top:47%;
+  right:3%;
+  z-index:5;
+  background-color:rgba(255, 255, 255, 0.8);
+  width:25px;
+  height:auto;
+  border-radius:3px;
+  box-shadow:0px 0px 2px 2px rgba(0,0,0,0.1);
+}
+/*EDIT PROFILE SECTION 
+======================*/
+
+.edit-profile{
+  height:100%;
+  width:100%;
+  box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
+  background-image:linear-gradient(to bottom,rgb(182, 53, 53),rgb(207, 121, 121));
+}
+.edit-row{
+  position: relative;
+  top:15%;
+}
+.edit-label{
+  position: relative;
+  display:block;
+  font-size: 1.0em;
+  top:12px;
+}
+.edit-submit{
+  position:relative;
+  right:33%;
+}
+
+/*FOOTER IMAGE
+==============*/
+
+.footer-img{
+  position: relative;
+  width:50%;
+  height:auto;
+  padding:8px;
 }

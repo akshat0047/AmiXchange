@@ -9,8 +9,9 @@ include_once "header.php";
       <div class="login-form">
     <form class="text-center" action="includes/login.inc.php" method="POST">
       <h4 id="Log-head" class="log-head text-center">LOG-IN</h4>
-      <input class="inputs" type="text" name="username" placeholder="Username"/><br/>
+      <input class="inputs" type="text" name="username" placeholder="Username/Email"/><br/>
       <input class="inputs" type="password" name="password" placeholder="Password"/><br/>
+      <a href="forgot-password.php" style="color:white" >FORGOT PASSWORD?</a><br/>
       <button id="submit-btn"  name="submit" type="submit" >SUBMIT</button>
 
       </form>
