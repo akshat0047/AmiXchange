@@ -4,7 +4,7 @@ ini_set('display_errors', 'On');
 session_start();
 include_once "db.inc.php";
 
-   $sql="select idno,book_pic from advertisements where user_uid='".$_SESSION['u_id']."';";
+   $sql="select idno,Product_Pic from advertisements where user_uid='".$_SESSION['u_id']."';";
    $result=mysqli_query($conn,$sql);
    $resultcheck=mysqli_num_rows($result);
    if($resultcheck>0)
@@ -13,7 +13,7 @@ include_once "db.inc.php";
        {
            if($_GET['id']==$row['idno'])
            {  
-               $file="../assets/books/".$row['book_pic'];
+               $file="../assets/Products/".$_SESSION['u_id'].'/'.$row['Product_Pic'];
                chmod($file, 0644);
                unlink($file);
                $del_sql="delete from advertisements where idno=".$row['idno'];

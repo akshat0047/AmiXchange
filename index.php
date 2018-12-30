@@ -14,11 +14,20 @@ else{
 else{
   $page=0;
 }
+if(isset($_POST['submit']))
+{
+$search=mysqli_real_escape_string($conn,$_POST['search']);
+$sql="SELECT * from advertisements where ((Product_Name like '".$search."%') or (Product_Name like '%".$search."') or (Product_Name like '%".$search."%')) LIMIT ".$page.",6";
+$result=mysqli_query($conn,$sql);
+$resultcheck=mysqli_num_rows($result);
+$limit=ceil($resultcheck/6);
+}
+else{
 $sql="SELECT * FROM advertisements LIMIT ".$page.",6";
 $result=mysqli_query($conn,$sql);
 $resultcheck=mysqli_num_rows($result);
 $limit=ceil($resultcheck/6);
-
+}
 echo('<section class="store">
 <div class="row">');
 
@@ -27,12 +36,11 @@ while($row=mysqli_fetch_assoc($result))
     echo('  <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center  ad-card-column">
 
       <div class="ad-card">');
-        echo('<img src="assets/books/'.$row['book_pic'].'" class="img-fluid ad-pic"/>
+        echo('<img src="assets/Products/'.$row['user_uid'].'/'.$row['Product_Pic'].'" class="ad-pic"/>
         <div class="ad-card-body text-center">');
-          echo('<p class="ad-head">'.$row["book_name"].'</p><hr class="ad-card-divider"/>');
-          echo('<p class="ad-info">BY - '. $row["writer_name"].'<br/> EDITION - '
-          . $row["book_edition"].'<br/>'.$row['book_price'].'<br/></p>
-          <a href="know_more.php?user='.$row['user_uid'].'&book='.$row['book_name'].'" class="btn-sm btn-primary btn-know-more" >Know More</a>
+          echo('<p class="ad-head">'.$row["Product_Name"].'</p><hr class="ad-card-divider"/>');
+          echo('<p class="ad-info">'. $row["Product_Type"].'<br/><i class="fas fa-rupee-sign"></i>'.$row['Product_Price'].'<br/></p>
+          <a href="know_more.php?user='.$row['user_uid'].'&product='.$row['Product_Name'].'" class="btn-sm btn-primary btn-know-more" >Know More</a>
         </div>
       </div>
     </div>');

@@ -12,24 +12,23 @@ else{
 
 <section class="  myads-section ">
 
-<div class="ad-block d-flex">
+<div class="ad-block">
 
   <div class="row">
     <?php
     for($x=(($page-1)*6);$x<($page*6);$x++)
     {
-      if(isset($_SESSION['book_name'][$x]))
+      if(isset($_SESSION['Product_Name'][$x]))
       {
     echo('  <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center  ad-card-column">
 
         <div class="ad-card">');
-          echo('<img src="assets/books/'.$_SESSION['book_pic'][$x].'" class="img-fluid ad-pic"/>
+          echo('<img src="assets/Products/'.$_SESSION['u_id'].'/'.$_SESSION['Product_Pic'][$x].'" class="ad-pic"/>
           <div class="ad-card-body text-center">');
-            echo('<p class="ad-head">'.$_SESSION["book_name"][$x].'</p><hr class="ad-card-divider"/>');
-            echo('<p class="ad-info">BY - '. $_SESSION["writer_name"][$x].'<br/> EDITION - '
-            . $_SESSION["edition"][$x].'<br/>'.$_SESSION['book_price'][$x].'<br/>'.
-              $_SESSION["book_description"][$x].'<br/></p>
-            <a href="#" onclick="del('.$_SESSION['idno'][$x].')" class="btn-sm btn-danger " >DELETE</a>
+            echo('<p class="ad-head">'.$_SESSION["Product_Name"][$x].'</p><hr class="ad-card-divider"/>');
+            echo('<p class="ad-info">'. $_SESSION["Product_Type"][$x].'<br/><i class="fas fa-rupee-sign"></i>'.$_SESSION['Product_Price'][$x].'<br/>'.
+              $_SESSION["Product_Description"][$x].'<br/></p>
+            <a href="#dialog" onclick="del('.$_SESSION['idno'][$x].')" class="btn-sm btn-danger smooth-scroll" >DELETE</a>
           </div>
         </div>
       </div>');
@@ -74,6 +73,26 @@ echo("' class='pagin-element'><i class='fas fa-angle-right'></i></a>
   document.getElementById('dialog').style.display="none";
    document.getElementsByClassName('ad-block')[0].style.opacity="1";
  }
+ $(document).ready(function(){
+  // Add smooth scrolling to all links
+$(".smooth-scroll").click(function (event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top - 90
+      }, 800);
+    }});
+  });
+
 </script>
 
 

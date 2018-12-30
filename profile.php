@@ -12,12 +12,11 @@
 
     <form action="includes/dp.inc.php" method="POST" enctype="multipart/form-data">
 
-      <label for="profiledp" ><?php if(isset($_SESSION['u_dp'])){ echo "<img src='assets/member_dp/".$_SESSION['u_dp']."'"."class='img-fluid profile-dp text-center'/>";}
+      <label for="profiledp" ><?php if(isset($_SESSION['u_dp'])){ echo "<img src='assets/Users/".$_SESSION['u_dp']."'"."class='profile-dp text-center'/>";}
         else{
-          echo "<img src='assets/akshat.jpg' class=' profile-dp text-center'/>";
+          echo "<img src='assets/Users/default.png' class=' profile-dp text-center'/>";
         }?></label>
       <input class="profile-upload-hide dp" type="file" id="profiledp"  name="displaypic" />
-      <button type="submit" name="submit">SUBMIT</button>
     </form>
 
     </div>
@@ -55,22 +54,13 @@
 
       </div>
     </div>
-
- <div class="row mobile">
-   <div  class="col-12 col-sm-12 profile-activity-box-mobile mobile">
-
-      <div class="row">
-        <div class="col-6 col-sm-6">
-         <a href="includes/advertisement.inc.php"><span id="activity-button1" class="profile-activity-mobile btn-warning text-center">MY ADDS</span></a>
-       </div>
-
-       <div class="col-6 col-sm-6">
-        <a href="add.php" ><span id="activity-button2" class="profile-activity-mobile btn-warning text-center">POST AN ADD</span></a>
-      </div>
-
-       </div>
-     </div>
 </div>
 </section>
 
 <?php include_once "footer.php"?>
+
+<script>
+$("input").change(function(){
+   $("form").submit();
+});
+</script>

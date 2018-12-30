@@ -10,14 +10,14 @@ include_once "header.php";
       <div class="signup-form ">
     <form class="text-center" action="includes/signup.inc.php" method="POST">
       <h4 id="Log-head" class="log-head text-center">SIGN-UP</h4>
-      <input class="inputs" type="text" name="username" placeholder="Username"/><br/>
-      <input class="inputs" type="password" name="password" placeholder="Password"/><br/>
-      <input class="inputs" type="text" name="firstname" placeholder="First Name"/><br/>
-      <input class="inputs" type="text" name="lastname" placeholder="Last Name"/><br/>
-      <input class="inputs" type="text" name="email" placeholder="Email"/><br/>
-      <input class="inputs" type="text" name="course" placeholder="Course"/><br/>
-      <input class="inputs" type="text" name="semester" placeholder="Semester"/><br/>
-      <input class="inputs" type="text" name="phone" placeholder="Phone Number"/><br/>
+      <input class="inputs" type="text" value="<?php if(isset($_GET['ut'])){echo($_GET['ut']);}?>" name="username" placeholder="Username" required/><br/>
+      <input class="inputs" type="<?php if(isset($_GET['pwd'])){echo('text');} else{echo('password');}?>" value="<?php if(isset($_GET['pwd'])){echo($_GET['pwd']);}?>" name="password" placeholder="Password" required/><br/>
+      <input class="inputs" type="text" value="<?php if(isset($_GET['fnameerr'])){echo($_GET['fnameerr']);}?>" name="firstname" placeholder="First Name" required/><br/>
+      <input class="inputs" type="text" value="<?php if(isset($_GET['lnameerr'])){echo($_GET['lnameerr']);}?>" name="lastname" placeholder="Last Name" required/><br/>
+      <input class="inputs" type="text" value="<?php if(isset($_GET['emailerr'])){echo($_GET['emailerr']);}?>" name="email" placeholder="Email" required/><br/>
+      <input class="inputs" type="text" name="course" placeholder="Course" required/><br/>
+      <input class="inputs" type="text" name="semester" placeholder="Semester" required/><br/>
+      <input class="inputs" type="text" name="phone" placeholder="Phone Number" required/><br/>
       <button id="submit-btn"  name="submit" type="submit" >SUBMIT</button>
   </form>
 

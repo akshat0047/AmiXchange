@@ -1,23 +1,28 @@
 
 <footer class="footblock">
-<div class="row">
-  <div class="col-sm-12 col-md-4 col-lg-4 text-center desktop">
-    <h5>MADE BY</h5>
-    <img src="assets/alias_dark.jpg" class="footer-img"/>
+<div class="row align-items-center">
+  <div class="col-sm-12 col-md-4 col-lg-4 text-center ">
+    <a href="https://asetalias.in"><img src="assets/Display/alias.png" class="footer-img"/></a>
+    <a href="https://lucknow.asetalias.in"><img src="assets/Display/alias_logo.png" class="footer-img"/></a>
   </div>
 
-  <div class="col-sm-12  col-md-4 col-lg-4 text-center desktop">
-    <h5>FIND US ON</h5>
-    <br/><a target="_blank" href="https://lucknow.asetalias.in">lucknow.asetalias.in</a>
-  </div>
+  
 
-  <div class="col-sm-12  col-md-4 col-lg-4 text-center">
-    <h5>VERSION</h5>
-    <br/><p>1.0.0</p>
+  <div class="col-sm-12  col-md-4 col-lg-4 text-center ">
+    <a target="_blank" style="color:white" class="footer-icons" href="https://lucknow.asetalias.in"><i class="fas fa-globe-asia "></i></a>
+    <a target="_blank" style="color:white" class="footer-icons" href="https://lucknow.asetalias.in"><i class="fab fa-instagram "></i></a>
+    <a target="_blank" style="color:white" class="footer-icons" href="https://lucknow.asetalias.in"><i class="fab fa-twitter "></i></a>
+    <a target="_blank" style="color:white" class="footer-icons" href="https://lucknow.asetalias.in"><i class="fas fa-envelope "></i></a>
+    <p class="footer-text">1.0.0(Early Access)<br/><i class="far fa-copyright"></i> 2019 | All Rights Reserved | Made with <i class="far fa-heart"></i> in Amity
+    <br/>Powered by <strong>ALiAS LUCKNOW</strong></p>
+  </div>
+  
+  <div class="col-sm-12  col-md-4 col-lg-4 text-center ">
+  <img src="assets/Display/AmiXchange_logo_dark.svg.png" class="footer-logo"/>
   </div>
 
 </footer>
-
 </body>
+
 
 </html>

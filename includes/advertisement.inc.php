@@ -7,13 +7,12 @@ $sql="SELECT * FROM advertisements WHERE user_uid="."'".$_SESSION['u_id']."'";
 $result=mysqli_query($conn,$sql);
 $resultcheck= mysqli_num_rows($result);
 
-$book_name=array();
-$writer_name=array();
-$edition=array();
+$Product_Name=array();
+$Product_Type=array();
 $time_since_purchase=array();
-$book_description=array();
-$book_pic=array();
-$book_price=array();
+$Product_Description=array();
+$Product_Pic=array();
+$Product_Price=array();
 $idno=array();
 
 
@@ -25,25 +24,23 @@ if($resultcheck < 1)
 else{
   while($row=mysqli_fetch_assoc($result))
   {
-  array_push($book_name,$row['book_name']);
-  array_push($writer_name,$row['writer_name']);
-  array_push($edition,$row['book_edition']);
+  array_push($Product_Name,$row['Product_Name']);
+  array_push($Product_Type,$row['Product_Type']);
   array_push($time_since_purchase,$row['time_since_purchase']);
-  array_push($book_description,$row['book_description']);
-  array_push($book_pic,$row['book_pic']);
-  array_push($book_price,$row['book_price']);
+  array_push($Product_Description,$row['Product_Description']);
+  array_push($Product_Pic,$row['Product_Pic']);
+  array_push($Product_Price,$row['Product_Price']);
   array_push($idno,$row['idno']);
 
 
 }
 
-$_SESSION['book_name']=$book_name;
-$_SESSION['writer_name']=$writer_name;
-$_SESSION['edition']=$edition;
+$_SESSION['Product_Name']=$Product_Name;
+$_SESSION['Product_Type']=$Product_Type;
 $_SESSION['time_since_purchase']=$time_since_purchase;
-$_SESSION['book_description']=$book_description;
-$_SESSION['book_pic']=$book_pic;
-$_SESSION['book_price']=$book_price;
+$_SESSION['Product_Description']=$Product_Description;
+$_SESSION['Product_Pic']=$Product_Pic;
+$_SESSION['Product_Price']=$Product_Price;
 $_SESSION['idno']=$idno;
 $_SESSION['ad_count']=$resultcheck;
 header("Location: ../my-advertisement.php");

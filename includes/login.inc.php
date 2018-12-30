@@ -1,25 +1,30 @@
 <?php
 session_start();
 if (isset($_POST["submit"])){
-
+  
   include_once "db.inc.php";
-  include_once "dp.inc.php";
   $unm=mysqli_real_escape_string($conn,$_POST["username"]);
   $pwd=mysqli_real_escape_string($conn,$_POST["password"]);
 
   //error handlers
   if(empty($unm) || empty($pwd)){
- header("location: ../login.php?login=empty");
+ header("location: ../login.php");
  exit();
   }
   else{
-       $sql="SELECT * FROM users WHERE (user_uid='$unm'|| user_email='$unm');";
+       $sql="SELECT * FROM users WHERE ((user_uid='".$unm."'|| user_email='$unm')&&(user_pwd='".$pwd."'));";
        $result=mysqli_query($conn,$sql);
        $resultcheck=mysqli_num_rows($result);
        if($resultcheck<1){
-         
-         header("location: ../login.php?login=error");
+         if(mysqli_num_rows(mysqli_query($conn,"SELECT user_first from users WHERE (user_uid='$unm'|| user_email='$unm')"))==0)
+         {
+         header("location: ../login.php?usererr=INVALID");
          exit();
+         }
+         else{
+         header("location: ../login.php?pwderr=INVALID");
+         exit();
+         }
        }
        else{
             $row=mysqli_fetch_assoc($result);
@@ -32,7 +37,7 @@ if (isset($_POST["submit"])){
              $_SESSION["u_semester"]= $row["user_semester"];
              $_SESSION['u_dp']=$row["user_dp"];
              $_SESSION['ph_no']=$row["user_phone"];
-             header("Location: ../profile.php?login=success");
+             header("Location: ../profile.php");
              exit();
 
 
@@ -41,7 +46,7 @@ if (isset($_POST["submit"])){
 
 }
   else{
-    header("Location: ../index.php?login=crashed");
+    header("Location: ../index.php?reply=You Cant See Me");
     exit();
   }
 
