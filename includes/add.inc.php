@@ -1,14 +1,10 @@
 <?php
-
+error_reporting(E_ALL | E_STRICT);
+ini_set('display_errors', 'On');
 session_start();
 if(isset($_POST['submit']))
 {
-  if(isset($_GET['ad']))
-  {
-    echo('<script>window.alert("ADVERTISEMENT POSTED");</script>');
-  }
   include_once "db.inc.php";
-
   $pn=mysqli_real_escape_string($conn,$_POST["productname"]);
   if(mysqli_num_rows(mysqli_query($conn,"SELECT Product_Name from advertisements where ((user_uid='".$_SESSION['u_id']."')&&(Product_Name='".$pn."'))"))>0)
   {
@@ -28,12 +24,12 @@ if(isset($_POST['submit']))
   $name=explode('.',$ppn);
   $ppext=strtolower(end($name));
   $allowtype=array('png','jpg','jpeg');
-
   if(empty($pn)||empty($pt)||empty($ptsp)||empty($pds)||empty($pp)){
     header("Location: ../add.php?fields=empty");
     exit();
   }
   else{
+    $date=date('Y-m-d',strtotime(htmlentities($ptsp)));
         //check if input characters are valid
         if(!preg_match("/^[a-zA-Z]*/",$pn))
         {
@@ -46,19 +42,25 @@ if(isset($_POST['submit']))
             if($ppe==0){
                 if($pps > 3000){
                   $dest="../assets/Products/".$_SESSION['u_id']."/";
-                  $ppnewname=$pn.'.'.$ppext;
+                  $ppnewname=$pn.'.'.'jpg';
                   if(! is_dir($dest))
                   {
                      mkdir($dest);
                   }
-                  echo($dest);
-                  move_uploaded_file($pptn,$dest.$ppnewname);
-                  $sql="INSERT INTO advertisements(user_uid,Product_Name,Product_Type,Product_Description,time_since_purchase,Product_Pic,Product_Price)VALUES"."('".$_SESSION['u_id']."','$pn','$pt','$pds',".DATE."'".$ptsp."'".",'$ppnewname',$pp);";
-                  $result=mysqli_query($conn,$sql);
-                 
-                  
-                  header("Location: ../add.php?ad=success");
-                  exit();
+                  $im = new Imagick($dptmpname);
+
+                 // Optimize the image layers
+                 $im->optimizeImageLayers();
+
+                // Compression and quality
+                 $im->setImageCompression(Imagick::COMPRESSION_JPEG);
+                 $im->setImageCompressionQuality(25);
+
+                // Write the image back
+                 $im->writeImages($dpdestination.$dpname, true);
+                  $sql="INSERT INTO advertisements(user_uid,Product_Name,Product_Type,Product_Description,time_since_purchase,Product_Pic,Product_Price)VALUES"."('".$_SESSION['u_id']."','$pn','$pt','$pds','$date','$ppnewname',$pp);";
+                  $result=mysqli_query($conn,$sql) or die("database connection failure, inform the admin.");
+                  header("Location: ../add.php?ad=success");                 
                 }
                 else{
                   header("Location: ../add.php");

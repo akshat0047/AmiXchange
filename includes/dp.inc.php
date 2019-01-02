@@ -18,26 +18,21 @@ if(in_array($dpext,$allowtype))
 {
   if($dperror==0){
       if($dpsize > 500){
+        $dpdestination="../assets/Users/";
+        $dpname=$_SESSION['u_id']."."."jpg";
+        $im = new Imagick($dptmpname);
 
-         $dpdestination="../assets/Users/";
-         $dpname=$_SESSION['u_id'].".".$dpext;
-         move_uploaded_file($dptmpname,$dpdestination.$dpname);
+         // Optimize the image layers
+         $im->optimizeImageLayers();
+
+        // Compression and quality
+         $im->setImageCompression(Imagick::COMPRESSION_JPEG);
+         $im->setImageCompressionQuality(25);
+
+         // Write the image back
+        $im->writeImages($dpdestination.$dpname, true);
          mysqli_query($conn,"UPDATE users SET user_dp='".$dpname."' WHERE user_uid='".$_SESSION['u_id']."';");
-
-         //Deleting the previous dp if it had some different extension
-         foreach($allowtype as $delext)
-         {
-         if($delext!=$dpext)
-         { 
-           $file_del='../assets/Users/'.$_SESSION['u_id'].'.'.$delext;
-         if(file_exists($file_del))
-         {  
-            echo($file_del);
-            chmod($file_del, 0644);
-            unlink($file_del);
-         }}
-        }
-        header("Location: session-reset.inc.php");
+         header("Location: session-reset.inc.php");
       }
       else{
         header("Location: ../profile.php?upload=Upload file under 500kb");

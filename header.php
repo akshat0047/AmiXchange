@@ -1,6 +1,8 @@
 <?php session_start(); 
 error_reporting(E_ALL | E_STRICT);
-ini_set('display_errors', 'On');?>
+ini_set('display_errors', 'On');
+include_once "includes/db.inc.php";
+?>
 <!DOCTYPE html>
 <html>
 
@@ -19,8 +21,7 @@ ini_set('display_errors', 'On');?>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
@@ -34,11 +35,26 @@ ini_set('display_errors', 'On');?>
     <a href='index.php' class='mob-link'><li class='mob-menu-list-element' >HOME</li></a>
     <?php if(!isset($_SESSION['u_id'])){echo"<a href='signup.php' class='mob-link'><li class='mob-menu-list-element' >SIGNUP</li></a>";}?>
     <?php if(!isset($_SESSION['u_id'])){echo"<a href='login.php' class='mob-link'><li class='mob-menu-list-element'>LOGIN</li></a>";}?>
-    <?php if(isset($_SESSION['u_id'])){echo"<a href='profile.php' class='mob-link'><li class='mob-menu-list-element'>PROFILE</li></a>";}?>
-    <?php if(isset($_SESSION['u_id'])){echo"<a href='edit-profile.php' class='mob-link'><li class='mob-menu-list-element'>EDIT-PROFILE</li></a>";}?>
-    <?php if(isset($_SESSION['u_id'])){echo"<a href='my-advertisement.php' class='mob-link'><li class='mob-menu-list-element'>MY-ADVERTISEMENT</li></a>";}?>
-    <?php if(isset($_SESSION['u_id'])){echo"<a href='add.php' class='mob-link'><li class='mob-menu-list-element' style='white-space:nowrap'>POST-ADVERTISEMENT</li></a>";}?>
-    </ul>
+    <?php if(isset($_SESSION['u_id'])){
+      $sql="SELECT user_pv,user_ev FROM verification WHERE user_uid='".$_SESSION['u_id']."'";
+      $result=mysqli_query($conn,$sql);
+      $row=mysqli_fetch_assoc($result);
+      if(($row['user_pv']==1)||($row['user_ev']==1))
+      {
+       if($row['user_pv']==1)
+       {
+       echo '<a href="phone-verification-enquiry.php" ><li id="activity-button2" class="profile-activity-desktop btn-warning text-center">VERIFY PHONE NUMBER</li></a>';
+       }
+       else{
+         echo '<li id="activity-button2" class="profile-activity-desktop btn-warning text-center">VERIFY EMAIL</li>';
+       }
+      }
+      else{
+          echo"<a href='profile.php' class='mob-link'><li class='mob-menu-list-element'>PROFILE</li></a>".
+              "<a href='edit-profile.php' class='mob-link'><li class='mob-menu-list-element'>EDIT-PROFILE</li></a>".
+              "<a href='my-advertisement.php' class='mob-link'><li class='mob-menu-list-element'>MY-ADVERTISEMENT</li></a>".
+              "<a href='add.php' class='mob-link'><li class='mob-menu-list-element' style='white-space:nowrap'>POST-ADVERTISEMENT</li></a>";}}
+    echo '</ul>
     <p class="mob-menu-con-text mob-link">1.0.0(Early Access)<br/><i class="far fa-copyright"></i> 2019 | All Rights Reserved | Made with <i class="far fa-heart"></i> in Amity
     <br/>Powered by <strong>ALiAS LUCKNOW</strong></p>
 </div>
@@ -54,21 +70,20 @@ ini_set('display_errors', 'On');?>
      <input type="search" name="search" class="input-search" placeholder="Search Products"/>
      <button type="submit" name="submit" class="btn-sm btn-warning btn-search" value="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
      <span id="expand-menu" class="menu-mobile"><i class="fas fa-bars"></i></span>
-  </form>
-  <?php if(!isset($_SESSION['u_id'])){
+  </form>';
+   if(!isset($_SESSION['u_id'])){
       echo '<a href="signup.php" class="desktop"><span class="btn-sm btn-info">SIGN-UP</span></a>';
     }
     else{
       echo '<a href="index.php" class="desktop"><span class="btn-sm btn-info">HOME</span></a>';
     }
-    ?>
-    <?php if(!isset($_SESSION['u_id'])){
+   if(!isset($_SESSION['u_id'])){
     echo '<a  href="login.php" class="desktop"><span class="btn-sm btn-info">LOGIN</span></a>';
   }
-    else if(explode("/",$_SERVER['REQUEST_URI'])[2]=="index.php"){
+    else{
     echo '<a href="profile.php" class="desktop"><span class="btn-sm btn-info">PROFILE</span></a>';
     }
-    else{
+    if((isset($_SESSION['u_id'])) && !(($row['user_pv']==1)||($row['user_ev']==1))){
     echo '<a href="edit-profile.php" class="desktop"><span class="btn-sm btn-info">EDIT PROFILE</span></a>';
     }?>
   </div>

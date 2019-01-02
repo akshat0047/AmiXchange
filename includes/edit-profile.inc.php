@@ -18,18 +18,6 @@ if(isset($_POST['submit']))
         
     }
 
-    if($_POST['email']!=$_SESSION['u_email'])
-    {
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL))
-        {
-        $sql="UPDATE users SET user_email ='".$_POST['email']."' where user_uid='".$_SESSION['u_id']."';";
-        $result=mysqli_query($conn,$sql);
-        }
-        else{
-            $errmsg="INVALID EMAIL";
-        }
-    }
-
     if(!empty($_POST['password']))
     {
       if(($_POST['password']==$_SESSION['u_pwd']) && ($_POST['passwordnew']==$_POST['passwordrenew']))
@@ -55,9 +43,10 @@ if(isset($_POST['submit']))
     }
 
     if($_POST['phone']!=$_SESSION['ph_no'])
-    {
+    {   
         $sql="UPDATE users SET user_phone ='".$_POST['phone']."' where user_uid='".$_SESSION['u_id']."';";
         $result=mysqli_query($conn,$sql);
+        mysqli_query($conn,"UPDATE")
         
     }
     

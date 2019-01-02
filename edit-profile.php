@@ -11,10 +11,8 @@ echo('<div class="edit-profile">
                 <span class="edit-label text-center"> OLD PASSWORD:</span><br/>
                 <span class="edit-label text-center"> NEW PASSWORD:</span><br/>
                 <span class="edit-label text-center"> RENTER NEW PASSWORD:</span><br/>
-                <span class="edit-label text-center"> EMAIL:</span><br/>
                 <span class="edit-label text-center"> COURSE:</span><br/>
                 <span class="edit-label text-center"> SEMESTER:</span><br/>
-                <span class="edit-label text-center"> PHONE-NO:</span><br/>
       </div>
       <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <form  action="includes/edit-profile.inc.php" method="POST">
@@ -25,9 +23,9 @@ echo('<div class="edit-profile">
                 <input class="inputs" type="password" name="passwordrenew" placeholder="Re-enter Password"/><br/>
                 <input class="inputs" value="'.$_SESSION['u_email'].'" type="text" name="email" placeholder="Email"/><br/>
                 <input class="inputs" value="'.$_SESSION['u_course'].'" type="text" name="course" placeholder="Course"/><br/>
-                <input class="inputs" value="'.$_SESSION['u_semester'].'" type="text" name="semester" placeholder="Semester"/><br/>
-                <input class="inputs" value="'.$_SESSION['ph_no'].'" type="text" name="phone" placeholder="Phone Number"/><br/><br/>
+                <input class="inputs" value="'.$_SESSION['u_semester'].'" type="text" name="semester" placeholder="Semester"/><br/><br/>
                 <button class="edit-submit" id="submit-btn"  name="submit" type="submit" >SUBMIT</button>
+                <a href="phone-verification-query"><button class="edit-submit" id="submit-btn"  name="submit">CHANGE MOBILE NUMBER</button></a>
                 </form>
       </div>
    </div>

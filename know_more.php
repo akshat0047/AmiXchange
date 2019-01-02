@@ -47,17 +47,17 @@ echo '<section class="profile-section-know-more ">';
      </div>'.
 
 '<div class="slick">';
-$sql2="select * from advertisements where user_uid='".$_GET['user']."';";
+$sql2="select * from advertisements where user_uid='".$user."';";
 $result2=mysqli_query($conn,$sql2);
 while($row2=mysqli_fetch_assoc($result2))
 {
  if(!($row2['Product_Name']==$row1['Product_Name']))
  {
 echo ('<div class="know-more-card text-center">');
-echo('<img src="assets/Products/'.$_SESSION['u_id'].'/'.$row2['Product_Pic'].'" class=" ad-pic"/>
+echo('<img src="assets/Products/'.$user.'/'.$row2['Product_Pic'].'" class=" ad-pic"/>
 <div class="know-more-card-body text-center">');
   echo('<h4>'.$row2["Product_Name"].'</h3><hr class="ad-card-divider"/>');
-  echo('<p>BY - '. $row2["Product_Type"].'<br/><i class="fas fa-rupee-sign"></i>'.$row2["Product_Price"].'<br/>'.
+  echo('<p>'. $row2["Product_Type"].'<br/><i class="fas fa-rupee-sign"></i>'.$row2["Product_Price"].'<br/>'.
     '</p><a href="know_more.php?user='.$row2['user_uid'].'&product='.$row2['Product_Name'].'" class="btn btn-primary " >Know More</a>
 </div>
 </div>');

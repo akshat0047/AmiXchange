@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_POST["submit"])){
-
+include_once "email-verification.php";
 include_once "db.inc.php";
 
 $unm= mysqli_real_escape_string($conn,$_POST["username"]);
@@ -11,9 +11,8 @@ $course= mysqli_real_escape_string($conn,$_POST["course"]);
 $sem= mysqli_real_escape_string($conn,$_POST["semester"]);
 $first=mysqli_real_escape_string($conn,$_POST["firstname"]);
 $last=mysqli_real_escape_string($conn,$_POST["lastname"]);
-$phone=mysqli_real_escape_string($conn,$_POST["phone"]);
 
-if(empty($unm)||empty($pwd)||empty($email)||empty($course)||empty($sem)||empty($first)||empty($last)||empty($phone)){
+if(empty($unm)||empty($pwd)||empty($email)||empty($course)||empty($sem)||empty($first)||empty($last)){
   header("Location: ../signup.php");
   exit();
 }
@@ -61,10 +60,11 @@ else{
              $hashedPwd= password_hash($pwd, PASSWORD_DEFAULT);
              //insert the user into database
              $at=rand(1000,100000);
-             $sql = "INSERT INTO users(user_uid,user_pwd,user_first,user_last,user_email,user_course,user_semester,user_phone)VALUES('$unm','$pwd','$first','$last','$email','$course',$sem,$phone);";
+             $sql = "INSERT INTO users(user_uid,user_pwd,user_first,user_last,user_email,user_course,user_semester)VALUES('$unm','$pwd','$first','$last','$email','$course',$sem);";
              $sql1= "INSERT INTO verification(user_uid,user_at,user_rc,user_ev,user_pv)VALUES('$unm',$at,0,1,1);";
              mysqli_query($conn,$sql);
-             
+             verify_email($email,$token,$unm);
+             mysqli_query($conn,$sql1);
              header("Location: ../login.php?signup=success");
              exit();
            }
