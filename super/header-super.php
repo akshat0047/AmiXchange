@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 
@@ -23,20 +24,20 @@
   </div>
 
 <?php 
-if(isset($_SESSION['u_id']))
+if(isset($_SESSION['u_sid']))
 {
   echo('<div class="col-sm-6 col-md-6 col-lg-6 text-center search-block">
-  <form action="index.php" class="search-form" method="POST">
+  <form action="home-super.php" class="search-form" method="GET">
      <input type="search" name="search" class="input-search" placeholder="Search Users"/>
      <button type="submit" name="submit" class="btn-sm btn-warning btn-search" value="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
   </form>
-</div>');
+</div></div>');
 }?>
 
 </header>
 
-<?php if(isset($_SESSION["u_id"])){
-  echo "<form class='logout-form' action='includes/logout.inc.php' method='POST'>
+<?php if(isset($_SESSION["u_sid"])){
+  echo "<form class='logout-form' action='includes/logout-super.inc.php' method='POST'>
   <button class='side-scrl' name='submit'>
     <i class='fas fa-power-off ic-logout'></i>
     </button>

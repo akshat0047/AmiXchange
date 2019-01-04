@@ -1,15 +1,15 @@
 <?php
 session_start();
-error_reporting(E_ALL & ~ E_NOTICE);
+error_reporting(E_ALL | E_STRICT);
+ini_set('display_errors', 'On');
 require ('textlocal.class.php');
-include_once "db.inc.php";
 class Controller
 {
     function __construct() {
         $this->processMobileVerification();
     }
     function processMobileVerification()
-    {
+    {   include_once "db.inc.php";
         switch ($_POST["action"]) {
             case "send_otp":
                 
@@ -21,14 +21,14 @@ class Controller
                     $mobile_number
                 );
                 $_SESSION['ph_no']=$mobile_number;
-                $sender = 'TXTLCL';
+                $sender = 'AMIXNG';
                 $otp = rand(100000, 999999);
                 $_SESSION['session_otp'] = $otp;
-                $message = "Your One Time Password is " . $otp;
+                $message = "Your OTP for AmiXchange is " . $otp;
                 
                 try{
                     $response = $Textlocal->sendSms($numbers, $message, $sender);
-                    require_once ("verification-form.php");
+                    require_once ("../verification-form.html");
                     exit();
                 }catch(Exception $e){
                     die('<div class="error">Error: '.$e->getMessage().'</div>');
@@ -40,9 +40,8 @@ class Controller
                 $otp = $_POST['otp'];
                 
                 if ($otp == $_SESSION['session_otp']) {
-                    unset($_SESSION['session_otp']);
-                    mysqli_query($conn,"UPDATE users SET user_phone=".$_SESSION['phone_no']." where user_uid='".$_SESSION['u_id']."'");
-                    mysqli_query($conn,"UPDATE verification SET user_mv=0 where user_uid='".$_SESSION['u_id']."'");
+                    mysqli_query($conn,"UPDATE users SET user_phone=".$_SESSION['ph_no']." where user_uid='".$_SESSION['u_id']."';");
+                    mysqli_query($conn,"UPDATE verification SET user_pv=0 where user_uid='".$_SESSION['u_id']."'");
                     echo json_encode(array("type"=>"success", "message"=>"Your mobile number is verified!"));
                 } else {
                     unset($_SESSION['ph_no']);

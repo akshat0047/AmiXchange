@@ -56,9 +56,9 @@ while($row2=mysqli_fetch_assoc($result2))
 echo ('<div class="know-more-card text-center">');
 echo('<img src="assets/Products/'.$user.'/'.$row2['Product_Pic'].'" class=" ad-pic"/>
 <div class="know-more-card-body text-center">');
-  echo('<h4>'.$row2["Product_Name"].'</h3><hr class="ad-card-divider"/>');
-  echo('<p>'. $row2["Product_Type"].'<br/><i class="fas fa-rupee-sign"></i>'.$row2["Product_Price"].'<br/>'.
-    '</p><a href="know_more.php?user='.$row2['user_uid'].'&product='.$row2['Product_Name'].'" class="btn btn-primary " >Know More</a>
+  echo('<p class="ad-head">'.$row2["Product_Name"].'</p><hr class="ad-card-divider"/>');
+  echo('<p class="ad-info"'. $row2["Product_Type"].'<br/><i class="fas fa-rupee-sign"></i>'.$row2["Product_Price"].'<br/>'.
+    '</p><a href="know_more.php?user='.$row2['user_uid'].'&product='.$row2['Product_Name'].'" class="btn-sm btn-primary " >Know More</a>
 </div>
 </div>');
  }

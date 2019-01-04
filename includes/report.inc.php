@@ -1,4 +1,5 @@
 <?php
+include_once "send-report-email.inc.php";
 if(isset($_POST['submit']))
 {
 include_once "db.inc.php";
@@ -13,7 +14,7 @@ $sql="UPDATE verification SET user_rc=$inc where user_uid='$report'";
 $result=mysqli_query($conn,$sql);
 }
 else{
-    header("Location:includes/send_report_email.inc.php");
+    report_email($report,$_POST['reason'],$_POST['description']);
 }
 }
 else{

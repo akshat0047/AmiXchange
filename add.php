@@ -22,7 +22,7 @@
       <option value="Shoes">Shoes</option>
       <option value="Clothes">Clothes</option>
       </select><br/>
-      <input class="inputs" type="date" name="tsp" placeholder="Time Since Purchase" required/><br/>
+      <input class="inputs" type="text" name="tsp" onfocus="(this.type='date')" placeholder="Date Of Purchase" required/><br/>
       <input class="inputs" type="text" name="price" placeholder="Price" required/><br/>
       <input class="inputs" type="textarea" name="description" placeholder="Description" required/><br/>
       <input class="inputs file_input" id="productfile" type="file" name="productpic" placeholder="Select a picture" required/><br/>

@@ -7,6 +7,24 @@ include_once "includes/db.inc.php";
 <html>
 
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121535119-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121535119-2');
+</script>
+
+<!-- GOOGLE ADS -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1772316900422345",
+    enable_page_level_ads: true
+  });
+</script>
 <title>AmiXchange</title>
 <meta charset="UTF-8">
 <meta name="description" content="Sell your products in Amity Lucknow Campus">
@@ -15,7 +33,6 @@ include_once "includes/db.inc.php";
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" type="image/svg" href="assets/Display/favicon.svg"/>
 <link rel="stylesheet" href="styles/layout.css">
-<link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Chela+One" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -63,14 +80,16 @@ include_once "includes/db.inc.php";
 <div class="row align-items-center header-row">
   <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center ">
   <img src="assets/Display/AmiXchange_logo_dark.svg.png" class="header-logo"/>
-  </div>
-
-  <div class="col-sm-6 col-md-6 col-lg-6 text-center search-block">
-  <form action="index.php" class="search-form" method="POST">
+  </div>';
+if(preg_match("/index.php/",$_SERVER['REQUEST_URI']))
+{
+  echo '<div class="col-sm-6 col-md-6 col-lg-6 text-center search-block">
+  <form action="index.php" class="search-form" method="GET">
      <input type="search" name="search" class="input-search" placeholder="Search Products"/>
      <button type="submit" name="submit" class="btn-sm btn-warning btn-search" value="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
      <span id="expand-menu" class="menu-mobile"><i class="fas fa-bars"></i></span>
   </form>';
+}
    if(!isset($_SESSION['u_id'])){
       echo '<a href="signup.php" class="desktop"><span class="btn-sm btn-info">SIGN-UP</span></a>';
     }

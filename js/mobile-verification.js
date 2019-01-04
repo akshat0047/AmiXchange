@@ -1,13 +1,12 @@
 function sendOTP() {
 	$(".error").html("").hide();
-	console.log("inside send");
+	$("#loader").html("<br/><i class='fas fa-spinner fa-spin' style='color:white'></i>");
 	var number = $("#mobile").val();
 	if (number.length == 10 && number != null) {
 		var input = {
 			"mobile_number" : number,
 			"action" : "send_otp"
 		};
-		console.log("ajax set");
 		$.ajax({
 			url : 'includes/mobile-verification-controller.inc.php',
 			type : 'POST',
@@ -16,18 +15,20 @@ function sendOTP() {
 				$(".login-form").html(response);
 			},
 			error:function(data){
-				console.log(data);
-				alert("ajax error, json: " + data);
+				
 			}
 		});
 	} else {
-		$(".error").html('Please enter a valid number!')
+		
+	    $(".error").html('<p class="num-error">Please enter a valid number!</p>');
 		$(".error").show();
+		$("#loader").hide();	
 	}
 }
 
 function verifyOTP() {
 	$(".error").html("").hide();
+	$("#loader").html("<br/><i class='fas fa-spinner fa-spin' style='color:white'></i>");
 	$(".success").html("").hide();
 	var otp = $("#mobileOtp").val();
 	var input = {
@@ -36,23 +37,26 @@ function verifyOTP() {
 	};
 	if (otp.length == 6 && otp != null) {
 		$.ajax({
-			url : '../includes/mobile-verification-controller.inc.php',
+			url : 'includes/mobile-verification-controller.inc.php',
 			type : 'POST',
 			dataType : "json",
 			data : input,
 			success : function(response) {
-				$("." + response.type).html(response.message)
+				$(".log-head").hide();
+				$("#loader").html("<br/><i class='fas fa-spinner fa-spin' style='color:white'></i>");
+				$("." + response.type).html("<class='num-error'>"+response.message+"</div>");
                 $("." + response.type).show();
                 setTimeout(() => {
-                    window.location="../profile.php"
+                    window.location="profile.php";
                 }, 1500);
 			},
-			error : function() {
-				alert("ss");
+			error : function(ts) {
+				alert(ts.responseText);
 			}
 		});
 	} else {
-		$(".error").html('You have entered wrong OTP.')
+		$(".error").html('<p class="num-error">You have entered wrong OTP</p>')
 		$(".error").show();
+		$("#loader").html("<br/><i class='fas fa-spinner fa-spin' style='color:white'></i>");
 	}
 }

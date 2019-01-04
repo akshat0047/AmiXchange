@@ -16,6 +16,9 @@ $_SESSION["u_email"]= $row["user_email"];
 $_SESSION["u_course"]= $row["user_course"];
 $_SESSION["u_semester"]= $row["user_semester"];
 $_SESSION['u_dp']=$row["user_dp"];
+if(isset($row['user_phone'])){
+    $_SESSION['ph_no']=$row['user_phone'];
+}
 header("Location: ../profile.php");
 
 }

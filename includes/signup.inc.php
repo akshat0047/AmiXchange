@@ -1,7 +1,8 @@
 <?php
-
+error_reporting(E_ALL | E_STRICT);
+ini_set('display_errors', 'On');
 if(isset($_POST["submit"])){
-include_once "email-verification.php";
+include_once "email-verification.inc.php";
 include_once "db.inc.php";
 
 $unm= mysqli_real_escape_string($conn,$_POST["username"]);
@@ -34,10 +35,16 @@ else{
         //checking Email
         if(!filter_var($email, FILTER_VALIDATE_EMAIL))
           {
-            header("Location ../signup.php?emailerr=Invalid");
+            header("Location: ../signup.php?emailerr=Invalid");
             exit();
           }
           else{
+            if(!preg_match("/student.amity.edu/",$email))
+            {
+              header("Location: ../signup.php?emailerr=NOT AMIZONE EMAIL");
+              exit();
+            }
+          else{            
           $sql= "SELECT user_first FROM users WHERE user_email='$email'";
           $result= mysqli_query($conn,$sql);
           $resultCheck = mysqli_num_rows($result);
@@ -56,20 +63,18 @@ else{
              exit();
            }
            else{
-             //hashing Password
-             $hashedPwd= password_hash($pwd, PASSWORD_DEFAULT);
              //insert the user into database
              $at=rand(1000,100000);
              $sql = "INSERT INTO users(user_uid,user_pwd,user_first,user_last,user_email,user_course,user_semester)VALUES('$unm','$pwd','$first','$last','$email','$course',$sem);";
              $sql1= "INSERT INTO verification(user_uid,user_at,user_rc,user_ev,user_pv)VALUES('$unm',$at,0,1,1);";
              mysqli_query($conn,$sql);
-             verify_email($email,$token,$unm);
              mysqli_query($conn,$sql1);
+             verify_email($email,$at,$unm);
              header("Location: ../login.php?signup=success");
              exit();
            }
       }
-    }}
+    }}}
     else{
       header("Location: ../signup.php?pwd=atleast 6 characters");
              exit();

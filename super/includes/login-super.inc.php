@@ -24,7 +24,8 @@ if (isset($_POST["submit"])){
          }
        
        else{
-             $_SESSION["u_id"]= $unm;
+             $_SESSION["u_sid"]= $unm;
+             echo($_SESSION['u_id']);
              header("Location: ../home-super.php");
              exit();
          }

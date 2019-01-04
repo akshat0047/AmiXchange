@@ -3,11 +3,19 @@ include_once "header.php";
 $limit= ceil($_SESSION['ad_count']/6);
 if(isset($_GET['page']))
 {
-
+  if($_GET['page']!=1)
+  {
+  $ll=(($_GET['page']*6)-6);
   $page=$_GET['page'];
 }
 else{
+  $ll=0;
   $page=1;
+}
+}
+else{
+  $page=1;
+  $ll=0;
 }?>
 
 <section class="  myads-section ">
@@ -16,7 +24,7 @@ else{
 
   <div class="row">
     <?php
-    for($x=(($page-1)*6);$x<($page*6);$x++)
+    for($x=$ll;$x<($page*6);$x++)
     {
       if(isset($_SESSION['Product_Name'][$x]))
       {
@@ -42,17 +50,18 @@ else{
 </div>
 <?php
 echo("<ul class='ad-pagin text-center'>
-  <span class='pagin-element-block'><a href='advertisement.php?page=");
-  if($page>0 && $page<$limit){echo('.'.($page-1).'.');}
-  else{echo("$page");}
+  <span class='pagin-element-block'><a href='index.php?page=");
+  if($page>1){echo($page-1);}
+  else{echo("1");}
   echo("'class='pagin-element'><i class='fas fa-angle-left'></i></li>");
 
   for($x=1;$x<=$limit;$x++)
-  {echo("<a href='advertisement.php?page=".$x."' class='pagin-element'>".$x."</li>");
+  {
+    echo("<a href='index.php?page=".$x."' class='pagin-element'>".$x."</li>");
   }
-echo("<a href='advertisement.php?page=");
-if($page>0 && $page<$limit){echo('.'.($page+1).'.');}
-else{echo("$page");}
+echo("<a href='index.php?page=");
+if($page<$limit){echo($page+1);}
+else{echo($limit);}
 echo("' class='pagin-element'><i class='fas fa-angle-right'></i></a>
 </span>
 </ul><br/>");

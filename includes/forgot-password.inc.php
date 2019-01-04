@@ -1,42 +1,44 @@
-<?php
+<?php 
+# Include the Autoloader 
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
+require 'db.inc.php';
+use Mailgun\Mailgun;
+
 if(isset($_POST['submit']))
 {
-$unm= mysqli_real_escape_string($conn,$_POST['rescue']);
-$sql="select token from users where (user_uid='".$unm."' OR user_email='".$unm."');";
+    $rescue=$_POST['rescue'];
+function forgot_pwd_email($user,$email,$token)
+{
+# Instantiate the client.
+$mgClient = new Mailgun('92b581566e7ab071379b2e661641d718-49a2671e-e4405271');
+$domain = "verify.amixchange.me";
+
+# Make the call to the client.
+$result = $mgClient->sendMessage($domain, array(
+	'from'    => 'AmiXchange<AmiXchange@verify.amixchange.me>',
+	'to'      =>  $email,
+	'subject' => 'Password Reset',
+    'text'    => 'AmiXchange,
+                  127.0.0.1/AmiXchange/password-reset.php?user='.$user.'&tk='.$token.'
+
+                  Click on the link above to reset your password
+                  Do Not share the link for security reasons.'
+));
+}
+$sql="SELECT user_uid,user_email FROM users WHERE (user_uid="."'".$rescue."' OR user_email="."'".$rescue."');";
 $result=mysqli_query($conn,$sql);
-
-
-$mailObj = new PHPMailer;  
-$to = "pande.akshat21@gmail.com"; 
-$subject = "Reset Password"; 
-$msg = "This is simple test mail sending by phpmailer class"; 
-$mailObj->AddAddress($to, 'Akshat');
-$mailObj->SetFrom('selami.com', 'Selami');
-$mailObj->AddReplyTo('pande.akshat21@gmail.com', 'Akshat Pande');
-$mailObj->Subject = $subject;
-$mailObj->AltBody = 'To view the message, please use an HTML compatible email viewer!'; 
-$mailObj->MsgHTML($msg);
- 
-// SMTP Settings
-$mailObj->isSMTP();                                      // Set mailer to use SMTP
-$mailObj->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
-$mailObj->SMTPAuth = true;                               // Enable SMTP authentication
-$mailObj->Username = 'pande.akshat21@gmail.com';         // SMTP username
-$mailObj->Password = 'criticaldamageworldwar$';           // SMTP password
-$mailObj->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-$mailObj->Port = 587;
- 
-$mailObj->Send();
-if(!$mailObj->Send()) {
-echo "There was an error sending the e-mail";
-} else {
-echo "E-Mail has been sent successfully";
+$check=mysqli_num_rows($result);
+if($check>0)
+{  $rp = rand(100000, 999999);
+   $row=mysqli_fetch_assoc($result);
+   forgot_pwd_email($row['user_uid'],$row['user_email'],$rp);
+   mysqli_query($conn,"UPDATE verification SET user_at=".$rp." WHERE user_uid='".$row['user_uid']."';");
+   header("Location: forgot-password.php?msg=sent");
+}
+else{
+    
 }
 }
 ?>

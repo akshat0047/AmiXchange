@@ -33,13 +33,16 @@ echo('<section class="profile-section-know-more">
         '</div>
       </div>
       </div><br/>');
-      if(isset($_SESSION['u-id']) && $row['user_uid']!=$_SESSION['u_id'])
+      if(isset($_SESSION['u_id']))
       {
+        if($row['user_uid']!=$_SESSION['u_id'])
+        {
       echo('<form method="POST" action="report.php">
       <input type="text" class="hide" value="'.$row['user_uid'].'" name="reported-user">
       <button id="submit-btn" type="submit" class="hide" value="submit"></button>
       <label for="submit-btn"><span class="btn btn-danger report-btn">REPORT</span></label>
       </form>');
+        }
       }
       else{
         echo('<a href="login.php"><span class="btn btn-danger report-btn">LOGIN TO REPORT</span></a>');

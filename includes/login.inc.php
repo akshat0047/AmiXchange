@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL | E_STRICT);
-ini_set('display_errors', 'On');
 session_start();
 if (isset($_POST["submit"])){
   
@@ -38,6 +36,10 @@ if (isset($_POST["submit"])){
              $_SESSION["u_course"]= $row["user_course"];
              $_SESSION["u_semester"]= $row["user_semester"];
              $_SESSION['u_dp']=$row["user_dp"];
+             if(isset($row['user_phone']))
+             {
+              $_SESSION['ph_no']=$row["user_phone"];
+             }
              header("Location: ../profile.php");
              exit();
          }

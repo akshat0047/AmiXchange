@@ -47,7 +47,7 @@ if(isset($_POST['submit']))
                   {
                      mkdir($dest);
                   }
-                  $im = new Imagick($dptmpname);
+                  $im = new Imagick($pptn);
 
                  // Optimize the image layers
                  $im->optimizeImageLayers();
@@ -57,7 +57,7 @@ if(isset($_POST['submit']))
                  $im->setImageCompressionQuality(25);
 
                 // Write the image back
-                 $im->writeImages($dpdestination.$dpname, true);
+                 $im->writeImages($dest.$ppnewname, true);
                   $sql="INSERT INTO advertisements(user_uid,Product_Name,Product_Type,Product_Description,time_since_purchase,Product_Pic,Product_Price)VALUES"."('".$_SESSION['u_id']."','$pn','$pt','$pds','$date','$ppnewname',$pp);";
                   $result=mysqli_query($conn,$sql) or die("database connection failure, inform the admin.");
                   header("Location: ../add.php?ad=success");                 

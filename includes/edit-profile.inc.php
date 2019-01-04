@@ -41,14 +41,6 @@ if(isset($_POST['submit']))
         $result=mysqli_query($conn,$sql);
         
     }
-
-    if($_POST['phone']!=$_SESSION['ph_no'])
-    {   
-        $sql="UPDATE users SET user_phone ='".$_POST['phone']."' where user_uid='".$_SESSION['u_id']."';";
-        $result=mysqli_query($conn,$sql);
-        mysqli_query($conn,"UPDATE")
-        
-    }
     
     header("Location: session-reset.inc.php?");
 }

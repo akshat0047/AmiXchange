@@ -11,21 +11,8 @@ a, u{
   text-decoration: none !important;
 }
 
-#main-head{
-font-family: 'Patua One', cursive;
-font-size:1.4em;
-}
-#Log-head{
-  font-family: 'Rubik', sans-serif;
-}
-#submit-btn{
-  font-family: 'Rubik', sans-serif;
-}
 #info-que{
   font-family: 'Chela One', cursive;
-}
-#info-ans{
-  font-family: 'Rubik', sans-serif;
 }
 #activity-button1{
   font-family: 'Oswald', sans-serif;
@@ -95,6 +82,11 @@ font-size:1.4em;
 .forgot-password-form{
   position: relative;
   display:block;
+  top:0px;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  margin:auto;
   padding:10px;
   background-color: rgba(0,0,0,0.8);
   border: solid black 1px;
@@ -347,6 +339,16 @@ font-size:1.4em;
   z-index:10;
   top:10px;
 }
+.ev_info{
+  position: absolute;
+  z-index:50;
+  width:70%;
+  background-color: rgba(251,251,251,0.9);
+  height:70%;
+  margin:auto;
+  top:0px;
+  bottom:0px;
+}
 }
 @media only screen and (min-width:768px){
   .desktop{
@@ -365,7 +367,7 @@ font-size:1.4em;
     top:95%;
   }
   .forgot-password-form{
-    top:200%;
+    top:135%;
   }
   .main-heading{
     font-size: 2.0em;
@@ -552,6 +554,57 @@ font-size:1.4em;
   z-index:10;
   top:60px;
 }
+.ev_info{
+  display:none;
+  position: fixed;
+  box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
+  z-index:50;
+  width:75%;
+  height:70%;
+  background-color: rgba(251,251,251,0.9);
+  margin:auto;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  border-radius:10px;
+  transition: all 1s;
+}
+.tute-screend{
+  position: relative;
+  width:115%;
+  margin-top:10px;
+  margin-left:30px;
+  top:28%;
+}
+.tute-screenm{
+  position: relative;
+  width:40%;
+  margin:10px;
+  top:28%;
+}
+.ami-btn-row{
+  position: relative;
+  top:15%;
+}
+.msg-ami{
+  position: absolute;
+  left:0px;
+  right:0px;
+  margin:auto;
+  top:7%;
+}
+.close-ami{
+  position: relative;
+  cursor:pointer;
+  z-index:100;
+  border-radius: 3px;
+  background-color:rgba(0,0,0,0.8);
+  padding-left:4px;
+  padding-right:4px;
+  left:30%;
+  color:white !important;
+}
 }
 .seller-email{
   cursor:pointer;
@@ -641,6 +694,13 @@ font-size:1.4em;
   padding:5px;
   margin:5px;
 }
+.input-email{
+  position: relative;
+  width:67%;
+  border-radius: 5px;
+  padding:5px;
+  margin:5px;
+}
 select{
   -webkit-appearance:none;
 }
@@ -704,8 +764,8 @@ input[type="number"] {
   position: relative;
   margin: auto;
   display:block;
-  width: 60%;
-  height:auto;
+  width: 55%;
+  height:350px;
   border-radius: 15px;
   box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.1);
 }
@@ -814,7 +874,7 @@ input[type="number"] {
 
 .ad-card-divider{
   background-color: white;
-  width:80%;
+  width:60%;
 }
 .ad-row{
   position: relative;
@@ -822,11 +882,13 @@ input[type="number"] {
 }
 .ad-head{
  font-size: 0.9em;
- font-family: 'Merriweather Sans', sans-serif;
+ font-family: 'Oswald';
+ letter-spacing: 0.1em;
 }
 .ad-info{
   font-family: 'Merriweather Sans', sans-serif;
   font-size: 0.7em;
+  font-weight:400;
 }
 /*SLICK CAROUSEL*/
 
@@ -835,7 +897,7 @@ input[type="number"] {
   width:100%;
   height:auto;
   padding:10px;
-  background-image:linear-gradient(to bottom, rgb(241, 241, 241),rgb(221, 221, 221));
+  background-image:linear-gradient(to bottom, rgb(175, 175, 165),rgb(216, 214, 205));
   box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.3);
 }
 .slick-prev{
@@ -876,4 +938,15 @@ input[type="number"] {
 }
 .error{
   color:white;
+}
+.num-error{
+  background-color: rgb(52, 33, 221);
+  padding:1px;
+  border-radius:3px;
+}
+.login-notice{
+  color:white;
+  background-color: rgb(52, 33, 221);
+  padding:1px;
+  border-radius:3px;
 }

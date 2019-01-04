@@ -25,8 +25,8 @@ echo('<div class="edit-profile">
                 <input class="inputs" value="'.$_SESSION['u_course'].'" type="text" name="course" placeholder="Course"/><br/>
                 <input class="inputs" value="'.$_SESSION['u_semester'].'" type="text" name="semester" placeholder="Semester"/><br/><br/>
                 <button class="edit-submit" id="submit-btn"  name="submit" type="submit" >SUBMIT</button>
-                <a href="phone-verification-query"><button class="edit-submit" id="submit-btn"  name="submit">CHANGE MOBILE NUMBER</button></a>
                 </form>
+                <a href="phone-verification-enquiry.php"><button class="edit-submit" id="submit-btn"  >CHANGE MOBILE NUMBER</button></a>
       </div>
    </div>
 </div>');
