@@ -29,7 +29,7 @@ include_once "header.php";
 <!--EMAIL INFO -->
 
 <div id="emailverif" class="ev_info">
-<div class="msg-ami text-center">THIS IS YOUR AMIZONE EMAIL!<span class="close-ami" onclick="ev_info_close()"><i class="fas fa-times"></i><span></div>        
+<div class="msg-ami text-center">THIS IS YOUR AMIZONE EMAIL<br>DO CHECK THE SPAM!<span class="close-ami" onclick="ev_info_close()"><i class="fas fa-times"></i><span></div>        
   <div class="row text-center">
     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
           <img src="assets/Display/screend.jpg" class="tute-screend"/>
@@ -40,7 +40,7 @@ include_once "header.php";
 </div>
 <div class="row ami-btn-row">
   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
-    <a target="_blank" href="https://student.amizone.net/"><button class="btn btn-success" >AMIZONE</button></a>
+    <a target="_blank" href="https://student.amizone.net/"><button class="btn-sm btn-mobile btn-success" >AMIZONE</button></a>
         </div></div>
         </div>
 <!--          -->

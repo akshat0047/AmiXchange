@@ -36,7 +36,7 @@ include_once "select.php";
  
  while($row=mysqli_fetch_assoc($result))
  {
-     echo('  <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+     echo('  <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center user-column">
              <div>'.$row['user_uid'].'//'.$row['user_first'].' '.$row['user_last'].'//'.$row['user_phone'].'//'.$row['user_email'].'<br class="mobile"/><span  onclick="del('."'".$row['user_uid']."','".$_SERVER['REQUEST_URI']."'".')" class="btn-sm btn-danger delete-user">DELETE</span>');
    }
  echo('</div>');
@@ -61,15 +61,14 @@ echo("' class='pagin-element'><i class='fas fa-angle-right'></i></a>
 </span>
 </ul><br/>");
   }
-
- include_once "footer-super.php";
   ?>
   <div id="dialog" class="delete-dialog text-center">
 </div>
  </section>
+ <?php include_once "footer-super.php"; ?>
 <script>
  function del(id,urlp){
-  document.getElementById('dialog').innerHTML= '<p class="delete-warning">THIS ADVERTISEMENT WILL BE DELETED</p><br/>'+
+  document.getElementById('dialog').innerHTML= '<p class="delete-warning">THIS USER WILL BE DELETED</p><br/>'+
           '<a href="includes/delete-super.inc.php?id='+id+'&ur='+urlp+'" ><span class="btn-sm btn-danger btn-dialog">DELETE</span></a><span  onclick="go_back()" class="btn-sm btn-success btn-dialog">GO BACK</span>';
   document.getElementById('dialog').style.display="block";
   document.getElementsByClassName('store')[0].style.opacity="0.7";     
@@ -94,14 +93,12 @@ $(".smooth-scroll").click(function (event) {
       // Using jQuery's animate() method to add smooth page scroll
       // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
       $('html, body').animate({
-        scrollTop: $(hash).offset().top - 90
+        scrollTop: $(hash).offset().top
       }, 800);
     }});
   });
 
 </script>
-
- </script>
   </body>
   </html>
  

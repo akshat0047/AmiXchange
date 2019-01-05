@@ -89,7 +89,6 @@ a, u{
   .login-form{
     position: relative;
     display:block;
-    left:5%;
     padding:10px;
     background-color: rgba(0,0,0,0.8);
     border: solid black 1px;
@@ -120,8 +119,7 @@ a, u{
   .delete-dialog{
     position: absolute;
     display:none;
-    width:30%;
-    height:30%;
+    height:auto;
     padding:16px;
     border-radius:5px;
     background-color: rgba(251,251,251,0.9);
@@ -137,12 +135,20 @@ a, u{
    cursor:pointer;
    margin:15px;
   }
+  .user-column{
+    position: relative;
+    padding:20px;
+    margin-top:10px;
+  }
   @media only screen and (max-width:767px){
     .header-logo{
         position: relative;
         width:65%;
         padding-bottom:5px;
         height: auto;
+      }
+      .delete-dialog{
+        width:90%;
       }
       .input-search{
         width:60%;
@@ -191,7 +197,6 @@ a, u{
         top:5px;
     }
     .login-form{
-      left:5%;
       top:65%;
     }
   }
@@ -200,6 +205,9 @@ a, u{
         position: relative;
         width:45%;
         height: auto;
+    }
+    .delete-dialog{
+      width:30%;
     }
     .input-search{
         display: inline;

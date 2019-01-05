@@ -34,7 +34,7 @@ if(($_SESSION['u_sid']=="AmiXchange") && ($_GET['ur']=="/AmiXchange/super/home-s
                rmdir($ads);
                $del_sql1="delete from users where user_uid='".$_GET['id']."'";
                $del_sql2="delete from verification where user_uid='".$_GET['id']."'";
-               $del_sql3="delete from advertisement where user_uid='".$_GET['id']."'";
+               $del_sql3="delete from advertisements where user_uid='".$_GET['id']."'";
                $del_result=mysqli_query($conn,$del_sql1);
                $del_result=mysqli_query($conn,$del_sql2);
                $del_result=mysqli_query($conn,$del_sql3);

@@ -18,7 +18,7 @@
       <option value="Disturbing on Negotiations">Disturbing on Negotiations</option>
       <option value="Other">Other</option>
       </select><br/>
-      <input type="text" class="hide" value="<?php $_POST['reported-user']?>" name="reported-user" required/>
+      <input type="text" class="hide" value="<?php echo($_POST['reported-user']); ?>" name="reported-user" required/>
       <input class="inputs" type="textarea" name="description" placeholder="Description" required/><br/>
       <button id="submit-btn"  name="submit" type="submit" >SUBMIT</button>
   </form>

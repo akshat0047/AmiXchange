@@ -8,9 +8,13 @@ html{
     overflow-x: hidden;
 }
 a, u{
+  color:inherit;
   text-decoration: none !important;
+  outline: none !important;
 }
-
+div, button{
+  outline: none !important;
+}
 #info-que{
   font-family: 'Chela One', cursive;
 }
@@ -22,13 +26,12 @@ a, u{
 }
 
 .headblock{
-  position: relative;
+  z-index:150;
   background-color:rgba(0, 0, 0,1);
   color:white;
   box-shadow: 0px 3px 2px 2px rgba(0, 0, 0,0.2);
   top:0px;
   height:auto;
-  padding:20px;
 }
 .header-row{
   position: relative;
@@ -70,7 +73,6 @@ a, u{
 .login-form{
   position: relative;
   display:block;
-  left:5%;
   padding:10px;
   background-color: rgba(0,0,0,0.8);
   border: solid black 1px;
@@ -93,6 +95,17 @@ a, u{
   box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);
 }
 @media only screen and (max-width:767px){
+  #headblock{
+    position: relative;
+    transition:all 0.5s;
+    padding:20px;
+  }
+  .store{
+    padding-top:34%;
+  }
+  .myads-section{
+    padding-top:34%;
+  }
   .main-heading{
     font-size: 1.6em;
   }
@@ -104,8 +117,7 @@ a, u{
     display: block;
   }
   .login-form{
-    left:5%;
-    top:65%;
+    top:60%;
   }
   .forgot-password-form{
     top:75%;
@@ -113,12 +125,10 @@ a, u{
   .signup-form{
     position: relative;
     display:block;
-    top:16%;
-    left:5%;
+    top:5%;
     padding:10px;
     background-color: rgba(0,0,0,0.8);
     border-radius: 5%;
-    margin-left: 40px;
     box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
    }
    .add-form{
@@ -340,22 +350,95 @@ a, u{
   top:10px;
 }
 .ev_info{
-  position: absolute;
-  z-index:50;
-  width:70%;
+  position: fixed;
+  display:none;
+  z-index:500;
+  width:80%;
   background-color: rgba(251,251,251,0.9);
-  height:70%;
+  height:80vh;
+  overflow-y:auto;
+  overflow-x:hidden;
   margin:auto;
-  top:0px;
+  left:0px;
+  right:0px;
   bottom:0px;
+  bottom:10%;
+  padding:10px;
+}
+.tute-screend{
+  display:none;
+}
+.tute-screenm{
+  position: relative;
+  width:65vw;
+  height:auto;
+  margin:6px;
+  
+}
+.input-email{
+  position: relative;
+  width:64%;
+  border-radius: 5px;
+  padding:5px;
+  margin:5px;
+}
+.msg-ami{
+  position: relative;
+  font-size:0.8em;
+  left:0px;
+  right:0px;
+  padding:2px;
+  margin:auto;
+}
+.btn-mobile{
+  position: relative;
+  right:0px;
+}
+.close-ami{
+  position: relative;
+  cursor:pointer;
+  z-index:100;
+  border-radius: 3px;
+  background-color:rgba(0,0,0,0.8);
+  padding-left:4px;
+  padding-right:4px;
+  left:20%;
+  bottom:10px;
+  color:white !important;
+}
+.delete-dialog{
+  width:90%;
+  height:160px;
+}
+.profile-dp-know-more{
+  width: 90%;
+  height:300px;
 }
 }
 @media only screen and (min-width:768px){
-  .desktop{
+  #headblock{
+    position: relative;
+    transition:all 0.5s;
+    padding:27px;
+  }
+  .store{
+    padding-top:11%;
+  }
+  .myads-section{
+    padding-top:11%;
+  }
+  .nav-btns{
     position: relative;
     margin:12px;
     right:1%;
-   display: inline-block;
+    transition: all 0.5s;
+    font-weight: 700;
+    color:rgb(100, 92, 92);
+    display: inline-block;
+  }
+  .nav-btns:hover{
+    background-color:rgb(25, 129, 189);
+    color:white !important;
   }
   .menu-mobile{
     display: none;
@@ -504,6 +587,7 @@ a, u{
   position: relative;
   border:none;
   right:4px;
+  bottom:1px;
   padding-top:4.5px !important;
   padding-bottom:4.5px !important;
   padding-left:10px !important;
@@ -558,7 +642,7 @@ a, u{
   display:none;
   position: fixed;
   box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
-  z-index:50;
+  z-index:500;
   width:75%;
   height:70%;
   background-color: rgba(251,251,251,0.9);
@@ -587,13 +671,6 @@ a, u{
   position: relative;
   top:15%;
 }
-.msg-ami{
-  position: absolute;
-  left:0px;
-  right:0px;
-  margin:auto;
-  top:7%;
-}
 .close-ami{
   position: relative;
   cursor:pointer;
@@ -605,6 +682,37 @@ a, u{
   left:30%;
   color:white !important;
 }
+.input-email{
+  position: relative;
+  width:67%;
+  border-radius: 5px;
+  padding:5px;
+  margin:5px;
+}
+.msg-ami{
+  position: absolute;
+  font-size:1.0em;
+  left:0px;
+  right:0px;
+  margin:auto;
+  top:7%;
+}
+.delete-dialog{
+  width:30%;
+  height:160px;
+}
+.profile-dp-know-more{
+  width: 55%;
+  height:350px;
+}
+}
+.search-block{
+  position: relative;
+  margin: auto;
+  top:0px;
+  left: 0px;
+  right:0px;
+  bottom:0px;
 }
 .seller-email{
   cursor:pointer;
@@ -694,13 +802,6 @@ a, u{
   padding:5px;
   margin:5px;
 }
-.input-email{
-  position: relative;
-  width:67%;
-  border-radius: 5px;
-  padding:5px;
-  margin:5px;
-}
 select{
   -webkit-appearance:none;
 }
@@ -764,16 +865,12 @@ input[type="number"] {
   position: relative;
   margin: auto;
   display:block;
-  width: 55%;
-  height:350px;
   border-radius: 15px;
   box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.1);
 }
 .delete-dialog{
   position: absolute;
   display:none;
-  width:30%;
-  height:17%;
   padding:16px;
   border-radius:5px;
   background-color: rgba(251,251,251,0.9);
@@ -813,7 +910,6 @@ input[type="number"] {
 }
 .pagin-element{
   position: relative;
-  background-color: rgba(254,254,254,0.5);
   width:30px;
   border-radius: 25%;
   height: auto;
@@ -823,8 +919,11 @@ input[type="number"] {
   transition: all 0.5s;
   display: inline-block;
   color: black;
+  text-decoration: none;
 }
 .pagin-element:hover{
+  text-decoration: none;
+  color:inherit;
   background-color: rgba(254,254,254,1);
 }
 .file_input{
@@ -896,7 +995,6 @@ input[type="number"] {
   position: relative;
   width:100%;
   height:auto;
-  padding:10px;
   background-image:linear-gradient(to bottom, rgb(175, 175, 165),rgb(216, 214, 205));
   box-shadow: inset 0px 0px 2px 2px rgba(0,0,0,0.3);
 }

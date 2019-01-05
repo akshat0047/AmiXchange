@@ -65,6 +65,7 @@ else{
            else{
              //insert the user into database
              $at=rand(1000,100000);
+             $pwd=password_hash($pwd,PASSWORD_DEFAULT);
              $sql = "INSERT INTO users(user_uid,user_pwd,user_first,user_last,user_email,user_course,user_semester)VALUES('$unm','$pwd','$first','$last','$email','$course',$sem);";
              $sql1= "INSERT INTO verification(user_uid,user_at,user_rc,user_ev,user_pv)VALUES('$unm',$at,0,1,1);";
              mysqli_query($conn,$sql);

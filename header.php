@@ -69,19 +69,19 @@ include_once "includes/db.inc.php";
       else{
           echo"<a href='profile.php' class='mob-link'><li class='mob-menu-list-element'>PROFILE</li></a>".
               "<a href='edit-profile.php' class='mob-link'><li class='mob-menu-list-element'>EDIT-PROFILE</li></a>".
-              "<a href='my-advertisement.php' class='mob-link'><li class='mob-menu-list-element'>MY-ADVERTISEMENT</li></a>".
+              "<a href='includes/advertisement.inc.php' class='mob-link'><li class='mob-menu-list-element'>MY-ADVERTISEMENT</li></a>".
               "<a href='add.php' class='mob-link'><li class='mob-menu-list-element' style='white-space:nowrap'>POST-ADVERTISEMENT</li></a>";}}
     echo '</ul>
     <p class="mob-menu-con-text mob-link">1.0.0(Early Access)<br/><i class="far fa-copyright"></i> 2019 | All Rights Reserved | Made with <i class="far fa-heart"></i> in Amity
     <br/>Powered by <strong>ALiAS LUCKNOW</strong></p>
 </div>
 
-  <header class="container-fluid  headblock">
+  <header id="headblock" class="container-fluid  headblock">
 <div class="row align-items-center header-row">
   <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center ">
   <img src="assets/Display/AmiXchange_logo_dark.svg.png" class="header-logo"/>
   </div>';
-if(preg_match("/index.php/",$_SERVER['REQUEST_URI']))
+if(preg_match("/index.php/",$_SERVER['REQUEST_URI']) || parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)=="/AmiXchange/")
 {
   echo '<div class="col-sm-6 col-md-6 col-lg-6 text-center search-block">
   <form action="index.php" class="search-form" method="GET">
@@ -91,19 +91,19 @@ if(preg_match("/index.php/",$_SERVER['REQUEST_URI']))
   </form>';
 }
    if(!isset($_SESSION['u_id'])){
-      echo '<a href="signup.php" class="desktop"><span class="btn-sm btn-info">SIGN-UP</span></a>';
+      echo '<a href="signup.php" class="nav-btns desktop"><span class="btn-sm">SIGN-UP</span></a>';
     }
-    else{
-      echo '<a href="index.php" class="desktop"><span class="btn-sm btn-info">HOME</span></a>';
-    }
+    
+      echo '<a href="index.php" class="nav-btns desktop"><span class="btn-sm">HOME</span></a>';
+  
    if(!isset($_SESSION['u_id'])){
-    echo '<a  href="login.php" class="desktop"><span class="btn-sm btn-info">LOGIN</span></a>';
+    echo '<a  href="login.php" class="nav-btns desktop"><span class="btn-sm">LOGIN</span></a>';
   }
     else{
-    echo '<a href="profile.php" class="desktop"><span class="btn-sm btn-info">PROFILE</span></a>';
+    echo '<a href="profile.php" class="nav-btns desktop"><span class="btn-sm">PROFILE</span></a>';
     }
     if((isset($_SESSION['u_id'])) && !(($row['user_pv']==1)||($row['user_ev']==1))){
-    echo '<a href="edit-profile.php" class="desktop"><span class="btn-sm btn-info">EDIT PROFILE</span></a>';
+    echo '<a href="edit-profile.php" class="nav-btns desktop"><span class="btn-sm">EDIT PROFILE</span></a>';
     }?>
   </div>
 

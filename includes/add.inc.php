@@ -63,19 +63,21 @@ if(isset($_POST['submit']))
                   header("Location: ../add.php?ad=success");                 
                 }
                 else{
-                  header("Location: ../add.php");
+                  header("Location: ../add.php?imerr=upload below 3 mb");
+                  exit();
                 }
 
 
   }
-
-
+else{
+  header("Location: ../add.php?imerr=upload below 3 mb");
+}
         }
 
 
 
       }}}}
 else{
-  header("Location: ../profile.php?upload=crashed");
+  header("Location: ../add.php?upload=crashed");
 }
 ?>
