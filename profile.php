@@ -3,9 +3,9 @@ include_once "includes/db.inc.php";
 ?>
 
 <section class="profile-section">
+  <div class="profile-box">
   <div class="row">
-
-    <div  class="offset-md-1 col-lg-4 col-lg-4 text-center image-box">
+    <div  class="col-12 col-sm-6 col-md-6 col-lg-6 text-center image-box">
 
     <form action="includes/dp.inc.php" method="POST" enctype="multipart/form-data">
 
@@ -18,7 +18,7 @@ include_once "includes/db.inc.php";
 
     </div>
 
-  <div  class=" offset-md-1 offset-lg-1  col-md-4 col-lg-4 profile-activity-box-desktop  desktop">
+  <div  class="col-12 col-sm-6 col-md-6 col-lg-6 profile-activity-box-desktop  desktop">
       <ul >
         <a href="includes/advertisement.inc.php" ><li id="activity-button1" class="profile-activity-desktop btn-warning text-center">MY ADDS</li></a>
         <?php
@@ -31,7 +31,7 @@ include_once "includes/db.inc.php";
           {
             echo '<li id="activity-button2" onclick="ev_info()" class="profile-activity-desktop btn-warning text-center">VERIFY EMAIL</li>';
           }
-          else{
+          else if($row['user_pv']==1){
             echo '<a href="phone-verification-enquiry.php" ><li id="activity-button2" class="profile-activity-desktop btn-warning text-center">VERIFY PHONE NUMBER</li></a>';
           }
          }
@@ -44,8 +44,8 @@ include_once "includes/db.inc.php";
   </div>
 </div>
 <br/>
-    <div class="row">
-      <div class="offset-sm-1 offset-md-1 offset-lg-1 col-12 col-sm-12 col-md-4 col-lg-4 text-center  profile-info">
+    <div class="row profile-info-row">
+      <div class="offset-md-1 offset-lg-1 col-12 col-sm-12 col-md-4 col-lg-4 text-center  profile-info">
 
         <div class="row">
           <div id="info-que" class="col-6 col-sm-6 col-md-6 col-lg-6 ">
@@ -68,6 +68,8 @@ include_once "includes/db.inc.php";
       </div>
     </div>
 </div>
+        </div>
+        
 </section>
 
 <!--EMAIL INFO -->

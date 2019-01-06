@@ -2,7 +2,7 @@
 
 <section class="post-add-section">
 
-  <div class="row">
+  <div class="row add-form-row">
     <div class=" offset-md-3 offset-lg-3 col-sm-12 col-md-6 col-lg-6 text-center">
       <div class="add-form ">
     <form class="text-center" action="includes/report.inc.php" method="POST">
@@ -10,7 +10,7 @@
       <p class="text-center" style="color:white">The reports will be acted upon in 48 hours time period.<br/>
                              AmiXchange Team is not responsible for any personal conflicts.<br/>
                              Strict Action on fake reports will take place.</p>
-      <select class="inputs" name="Reason" required>
+      <select class="inputs" name="reason" required>
       <option>Reason for reporting</option>
       <option value="Inappropriate Content">Inappropriate Content</option>
       <option value="Not Authorized owner of Product">Not Authorized owner of Product</option>

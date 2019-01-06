@@ -46,25 +46,26 @@ include_once "includes/db.inc.php";
 <body>
 
 <div id="menu-mobile-con" class="menu-mobile-con text-center">
-<span class='mob-link'><i id="close-menu" class="fas fa-times mob-menu-close-icon"></i>
+<span><i id="close-menu" class="fas fa-times mob-menu-close-icon"></i>
   <h4>DASHBOARD</h4><hr/></span>
   <ul class="mob-menu-list text-center">
     <a href='index.php' class='mob-link'><li class='mob-menu-list-element' >HOME</li></a>
     <?php if(!isset($_SESSION['u_id'])){echo"<a href='signup.php' class='mob-link'><li class='mob-menu-list-element' >SIGNUP</li></a>";}?>
     <?php if(!isset($_SESSION['u_id'])){echo"<a href='login.php' class='mob-link'><li class='mob-menu-list-element'>LOGIN</li></a>";}?>
     <?php if(isset($_SESSION['u_id'])){
-      $sql="SELECT user_pv,user_ev FROM verification WHERE user_uid='".$_SESSION['u_id']."'";
+      $sql="SELECT user_pv,user_ev FROM verification WHERE user_uid="."'".$_SESSION['u_id']."';";
       $result=mysqli_query($conn,$sql);
       $row=mysqli_fetch_assoc($result);
       if(($row['user_pv']==1)||($row['user_ev']==1))
       {
-       if($row['user_pv']==1)
+       if($row['user_ev']==1)
        {
-       echo '<a href="phone-verification-enquiry.php" ><li id="activity-button2" class="profile-activity-desktop btn-warning text-center">VERIFY PHONE NUMBER</li></a>';
+       echo '<li id="activity-button2" class="profile-activity-desktop btn-warning text-center">VERIFY EMAIL</li>';
        }
-       else{
-         echo '<li id="activity-button2" class="profile-activity-desktop btn-warning text-center">VERIFY EMAIL</li>';
+       else if($row['user_pv']==1){
+         echo '<a href="phone-verification-enquiry.php" ><li id="activity-button2" class="profile-activity-desktop btn-warning text-center">VERIFY PHONE NUMBER</li></a>';
        }
+         echo "<a href='profile.php' class='mob-link'><li class='mob-menu-list-element'>PROFILE</li></a>";
       }
       else{
           echo"<a href='profile.php' class='mob-link'><li class='mob-menu-list-element'>PROFILE</li></a>".
@@ -81,15 +82,14 @@ include_once "includes/db.inc.php";
   <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center ">
   <img src="assets/Display/AmiXchange_logo_dark.svg.png" class="header-logo"/>
   </div>';
-if(preg_match("/index.php/",$_SERVER['REQUEST_URI']) || parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)=="/AmiXchange/")
-{
+
   echo '<div class="col-sm-6 col-md-6 col-lg-6 text-center search-block">
   <form action="index.php" class="search-form" method="GET">
      <input type="search" name="search" class="input-search" placeholder="Search Products"/>
      <button type="submit" name="submit" class="btn-sm btn-warning btn-search" value="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-     <span id="expand-menu" class="menu-mobile"><i class="fas fa-bars"></i></span>
   </form>';
-}
+
+echo '<span id="expand-menu" class="menu-mobile"><i class="fas fa-bars"></i></span>';
    if(!isset($_SESSION['u_id'])){
       echo '<a href="signup.php" class="nav-btns desktop"><span class="btn-sm">SIGN-UP</span></a>';
     }

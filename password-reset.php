@@ -14,10 +14,10 @@ if($check>0)
     if($row['user_at']==$token)
     {
         include_once "header.php";
-        echo '<section class="container-fluid home">
-        <div class="row">
+        echo '<section class="container-fluid home-login">
+        <div class="row forgot-password-form-row">
       
-         <div class="offset-sm-2 offset-md-3 offset-lg-4 col-12 col-sm-8 col-md-6 col-lg-4 text-center">
+         <div class="offset-sm-2 offset-md-3 offset-lg-3 col-12 col-sm-8 col-md-6 col-lg-6 text-center">
             <div class="forgot-password-form">
           <form class="text-center" action="includes/password-reset.inc.php" method="POST"> 
           <span class="error">RESET PASSWORD</span>

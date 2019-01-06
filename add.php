@@ -2,7 +2,7 @@
 
 <section class="post-add-section">
 
-  <div class="row">
+  <div class="row add-form-row">
     <div class=" offset-md-3 offset-lg-3 col-sm-12 col-md-6 col-lg-6 text-center">
       <div class="add-form ">
       <div class="error"><?php if(isset($_GET['imerr'])){echo($_GET['imerr']);}?></div>
@@ -23,7 +23,7 @@
       <option value="Shoes">Shoes</option>
       <option value="Clothes">Clothes</option>
       </select><br/>
-      <input class="inputs" type="text" name="tsp" onfocus="(this.type='date')" placeholder="Date Of Purchase" required/><br/>
+      <input class="inputs" type="text" name="tsp" onfocus="(this.type='date')" placeholder="Purchased/Started" required/><br/>
       <input class="inputs" type="text" name="price" placeholder="Price" required/><br/>
       <input class="inputs" type="textarea" name="description" placeholder="Description" required/><br/>
       <input class="inputs file_input" id="productfile" type="file" name="productpic" placeholder="Select a picture" required/><br/>

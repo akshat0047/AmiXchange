@@ -13,7 +13,7 @@
     <a target="_blank" style="color:white" class="footer-icons" href="https://lucknow.asetalias.in"><i class="fab fa-twitter "></i></a>
     <a target="_blank" style="color:white" class="footer-icons" href="mailto:pande.akshat21@gmail.com"><i class="fas fa-envelope "></i></a>
     <p class="footer-text">1.0.0(Early Access)<br/><i class="far fa-copyright"></i> 2019 | All Rights Reserved | Made with <i class="far fa-heart"></i> in Amity
-    <br/>Powered by <strong>ALiAS LUCKNOW</strong></p>
+    <br/> <a href="https://www.freeprivacypolicy.com/privacy/view/f01ce39b05c4f9184ec9eb4dfb505762">Privacy Policy</a> <br/> Powered by <strong>ALiAS LUCKNOW</strong></p>
   </div>
   
   <div class="col-sm-12  col-md-4 col-lg-4 text-center ">

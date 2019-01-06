@@ -1,8 +1,8 @@
 <?php
 include_once "header.php";?>
 
-<section class="container-fluid home">
-  <div class="row">
+<section class="container-fluid home-login">
+  <div class="row forgot-password-form-row">
 
    <div class="offset-sm-2 offset-md-3 offset-lg-4 col-12 col-sm-8 col-md-6 col-lg-4 text-center">
       <div class="forgot-password-form">

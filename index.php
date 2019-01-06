@@ -35,7 +35,7 @@ $resultcheck=mysqli_num_rows($result);
 $pn=ceil($limit/6);
 }
 echo('<section class="store">
-<div class="row">');
+<div class="row item-row-store">');
 while($row=mysqli_fetch_assoc($result))
 {
     echo('  <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center  ad-card-column">
@@ -65,7 +65,10 @@ if(isset($_GET['search']))
   {
   for($x=0;$x<6;$x++)
   { 
+    if($x<$limit)
+    {
     echo("<a href='index.php?page=".($x+1)."' class='pg-no pagin-element'>".($x+1)."</li>");
+    }
   }}
   else if($page%6==0){
     for($x=$page;$x<$page+6;$x++)
@@ -100,6 +103,7 @@ echo("&search=".$_GET['search']."' class='pagin-element btn-sm btn-warning'><i c
   }
 
   else{
+    
 echo("<ul class='ad-pagin text-center'>
   <span class='pagin-element-block'><a href='index.php?page=");
   if($page>1){echo($page-1);}
@@ -109,7 +113,10 @@ echo("<ul class='ad-pagin text-center'>
   {
   for($x=0;$x<6;$x++)
   { 
+    if($x<$limit)
+    {
     echo("<a href='index.php?page=".($x+1)."' class='pg-no pagin-element'>".($x+1)."</li>");
+    }
   }}
   else if($page%6==0){
     for($x=$page;$x<$page+6;$x++)
@@ -142,11 +149,10 @@ echo("' class='pagin-element btn-sm btn-warning'><i class='fas fa-angle-right'><
 </span>
 </ul><br/>");
   }
-
-include_once "footer.php";
  ?>
 
 </section>
+<?php include_once "footer.php";?>
 <script>
 $(document).ready(function(){
   var pg = (document.URL).split("=");

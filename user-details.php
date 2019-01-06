@@ -5,10 +5,15 @@ $sql="select * from users where user_uid='".$_GET['user']."';";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($result);
 echo('<section class="profile-section-know-more">
-<div class="know-more-inner">
+<div class="know-more-inner-user">
 <div class="row align-items-center">'.
 '<div  class=" col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  text-center   image-box">'.
-         '<img src="assets/Users/'.$row['user_dp'].'" class=" profile-dp-know-more text-center"/> 
+         '<img src="assets/Users/');if(isset($row['user_dp'])){
+           echo($row['user_dp']);
+         }
+         else{
+           echo'default.png';
+         } echo('" class=" profile-dp-know-more text-center"/> 
          </div>'.
     
      '<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center">'.

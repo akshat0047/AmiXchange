@@ -5,7 +5,7 @@ include_once "header.php";
 
 <section class="container-fluid home">
 
-  <div class="row">
+  <div class="row signup-form-row">
     <div class=" offset-md-3 offset-lg-3 col-sm-12 col-md-6 col-lg-6 text-center">
       <div class="signup-form ">
     <form class="text-center" action="includes/signup.inc.php" method="POST">
@@ -25,16 +25,16 @@ include_once "header.php";
    </div>
    </div>
   </section>
-
+  <?php include_once "footer.php" ?>
 <!--EMAIL INFO -->
 
 <div id="emailverif" class="ev_info">
 <div class="msg-ami text-center">THIS IS YOUR AMIZONE EMAIL<br>DO CHECK THE SPAM!<span class="close-ami" onclick="ev_info_close()"><i class="fas fa-times"></i><span></div>        
-  <div class="row text-center">
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+  <div class="row text-center image-row-ami text-center">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 screend-column">
           <img src="assets/Display/screend.jpg" class="tute-screend"/>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 screenm-column">
           <img src="assets/Display/screenm.jpg" class="tute-screenm"/>
         </div>
 </div>
@@ -46,4 +46,4 @@ include_once "header.php";
 <!--          -->
 
 <script src="js/index.js"></script>
-<?php include_once "footer.php" ?>
+

@@ -44,7 +44,7 @@ function verifyOTP() {
 			success : function(response) {
 				$(".log-head").hide();
 				$("#loader").html("<br/><i class='fas fa-spinner fa-spin' style='color:white'></i>");
-				$("." + response.type).html("<class='num-error'>"+response.message+"</div>");
+				$("." + response.type).html("<class='error'>"+response.message+"</div>");
                 $("." + response.type).show();
                 setTimeout(() => {
                     window.location="profile.php";

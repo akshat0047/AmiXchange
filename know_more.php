@@ -24,7 +24,7 @@ echo '<section class="profile-section-know-more ">';
            <span class="infos text-center">USER:</span></div>
            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
            <span class="infos text-center">ITEM NAME:</span>
-           <span class="infos text-center">PURCHASED ON :</span>
+           <span class="infos text-center">PURCHASED/STARTED:</span>
            <span class="infos text-center">PRICE:</span>
          </div></div></div>'.
 
@@ -65,8 +65,8 @@ echo('<img src="assets/Products/'.$user.'/'.$row2['Product_Pic'].'" class=" ad-p
 }
 ?>
 </div>
-<?php include_once "footer.php"?>
 </section>
+<?php include_once "footer.php"?>
 <script type="text/javascript">
     $(document).ready(function(){
       $('.slick').slick({

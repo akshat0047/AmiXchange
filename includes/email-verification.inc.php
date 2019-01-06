@@ -15,7 +15,7 @@ $result = $mgClient->sendMessage($domain, array(
 	'to'      =>  $email,
 	'subject' => 'Email Verification',
     'text'    => 'AmiXchange,
-                  127.0.0.1/AmiXchange/includes/email-verified.inc.php?user='.$user.'&tk='.$token.'
+                  https://www.amixchange.me/includes/email-verified.inc.php?user='.$user.'&tk='.$token.'
 
                   Click on the link above to verify your email and proceed with your dealings on www.amixchange.me
                   Happy Selling!!'

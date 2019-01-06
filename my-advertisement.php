@@ -19,7 +19,7 @@ else{
   $ll=0;
 }?>
 
-<section class="  myads-section ">
+<section class="myads-section ">
 
 <div class="ad-block">
 
@@ -60,7 +60,10 @@ if($page<6)
 {
 for($x=0;$x<6;$x++)
 { 
-  echo("<a href='my-advertisement.php?page=".($x+1)."' class='pg-no pagin-element'>".($x+1)."</li>");
+  if($x<$limit)
+    {
+    echo("<a href='my-advertisement.php?page=".($x+1)."' class='pg-no pagin-element'>".($x+1)."</li>");
+    }
 }}
 else if($page%6==0){
   for($x=$page;$x<$page+6;$x++)
@@ -124,7 +127,7 @@ $(".smooth-scroll").click(function (event) {
       // Using jQuery's animate() method to add smooth page scroll
       // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
       $('html, body').animate({
-        scrollTop: $(hash).offset().top - 90
+        scrollTop: $(hash).offset().top -200
       }, 800);
     }});
   });
@@ -153,31 +156,30 @@ $(document).ready(function(){
   }
   $(".pg-no").css("background-color","rgba(254,254,254,0.5)");
   document.getElementsByClassName("pg-no")[chngclr-1].style.backgroundColor="#ffc107"; 
-  $("#headblock").css("position","fixed");
   $(window).scroll(function (){
-    if($(window).width()>768)
+    console.log(5);
+    if($(window).width()>574)
     {
     if($(this).scrollTop()>35)
     {
-      $("#headblock").css("padding","3");
+      $(".headblock").css("padding","3");
     }
     else{
-      $("#headblock").css("padding","30");
+      $(".headblock").css("padding","30");
     }
   }
-  else{
+  else{ console.log(5);
     if($(this).scrollTop()>35)
     {
-      $("#headblock").css("padding","5");
+      $(".headblock").css("padding","5");
     }
     else{
-      $("#headblock").css("padding","20");
+      $(".headblock").css("padding","20");
     }
   }
 });
 });
 </script>
-
+</section>
 <?php
 include_once "footer.php" ?>
-</section>
