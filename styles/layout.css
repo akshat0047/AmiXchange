@@ -193,10 +193,12 @@ div, button{
       display:none;
     }
     .footer-text{
+      position: relative;
       padding-top: 5px;
       color:rgb(182, 180, 180);
       font-size:0.7em;
     }
+
     .footer-icons{
       color:rgb(182, 180, 180) !important;
       cursor:pointer;
@@ -662,7 +664,6 @@ div, button{
   position: relative;
   border:none;
   right:4px;
-  bottom:1px;
   padding-top:4.5px !important;
   padding-bottom:4.5px !important;
   padding-left:10px !important;
@@ -1036,7 +1037,6 @@ div, button{
   position: relative;
   border:none;
   right:4px;
-  bottom:1px;
   padding-top:4.5px !important;
   padding-bottom:4.5px !important;
   padding-left:10px !important;
@@ -1416,7 +1416,6 @@ div, button{
   position: relative;
   border:none;
   right:4px;
-  bottom:1px;
   padding-top:4.5px !important;
   padding-bottom:4.5px !important;
   padding-left:10px !important;
@@ -1916,4 +1915,7 @@ input[type="number"] {
   background-color: rgb(52, 33, 221);
   padding:1px;
   border-radius:3px;
+}
+.privacy-policy{
+  color:rgb(182, 180, 180);
 }

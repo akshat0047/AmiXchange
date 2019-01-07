@@ -73,7 +73,7 @@ include_once "includes/db.inc.php";
               "<a href='includes/advertisement.inc.php' class='mob-link'><li class='mob-menu-list-element'>MY-ADVERTISEMENT</li></a>".
               "<a href='add.php' class='mob-link'><li class='mob-menu-list-element' style='white-space:nowrap'>POST-ADVERTISEMENT</li></a>";}}
     echo '</ul>
-    <p class="mob-menu-con-text mob-link">1.0.0(Early Access)<br/><i class="far fa-copyright"></i> 2019 | All Rights Reserved | Made with <i class="far fa-heart"></i> in Amity
+    <p class="mob-menu-con-text">1.0.0(Early Access)<br/><i class="far fa-copyright"></i> 2019 | All Rights Reserved | Made with <i class="far fa-heart"></i> in Amity
     <br/>Powered by <strong>ALiAS LUCKNOW</strong></p>
 </div>
 

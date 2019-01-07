@@ -21,7 +21,7 @@ $result = $mgClient->sendMessage($domain, array(
 	'to'      =>  $email,
 	'subject' => 'Password Reset',
     'text'    => 'AmiXchange,
-                  https://www.amixchange.me/password-reset.php?user='.$user.'&tk='.$token.'
+                  http://www.amixchange.me/password-reset.php?user='.$user.'&tk='.$token.'
 
                   Click on the link above to reset your password
                   Do Not share the link for security reasons.'

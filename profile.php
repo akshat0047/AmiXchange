@@ -77,10 +77,10 @@ include_once "includes/db.inc.php";
 <div id="emailverif" class="ev_info">
 <div class="msg-ami text-center">CHECK YOUR AMIZONE EMAIL TO VERIFY!<br/>Do Check The Spam Box<span class="close-ami" onclick="ev_info_close()"><i class="fas fa-times"></i><span></div>        
   <div class="row text-center">
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 screend-column">
           <img src="assets/Display/screend.jpg" class="tute-screend"/>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 screenm-column">
           <img src="assets/Display/screenm.jpg" class="tute-screenm"/>
         </div>
 </div>
