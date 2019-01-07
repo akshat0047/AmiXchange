@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source: /
-    destination: /opt/lampp/htdocs/
+    destination: /var/www/html/
 
 
 

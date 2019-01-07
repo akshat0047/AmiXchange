@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 06, 2019 at 12:46 AM
+-- Generation Time: Jan 07, 2019 at 11:56 PM
 -- Server version: 5.7.24-0ubuntu0.18.04.1
 -- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
@@ -32,10 +32,21 @@ CREATE TABLE `advertisements` (
   `Product_Type` char(40) DEFAULT NULL,
   `Product_Description` char(200) DEFAULT NULL,
   `time_since_purchase` date DEFAULT NULL,
-  `Product_Pic` varchar(20) DEFAULT NULL,
+  `Product_Pic` varchar(255) DEFAULT NULL,
   `Product_Price` int(6) DEFAULT NULL,
   `idno` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `advertisements`
+--
+
+INSERT INTO `advertisements` (`user_uid`, `Product_Name`, `Product_Type`, `Product_Description`, `time_since_purchase`, `Product_Pic`, `Product_Price`, `idno`) VALUES
+('akshat0047', 'Hk DAs', 'Study Material Hardcopy', 'Its in a good condition with no torn pages', '2019-01-16', 'Hk DAs.jpg', 200, 1),
+('akshat0047', 'sadasd', 'Electronics', 'Its in a good condition with no torn pages', '2019-01-15', 'sadasd.jpg', 345, 2),
+('akshat0047', 'sfsaf', 'Electronics', 'Its in a good condition with no torn pages', '2019-01-10', 'sfsaf.jpg', 334, 4),
+('akshat0047', 'sad', 'Skill Work', 'Its in a good condition with no torn pages', '2019-01-09', 'sad.jpg', 324, 5),
+('', 'asdsad', 'Novel', 'safsDF', '2019-01-17', 'asdsad.jpg', 324, 6);
 
 -- --------------------------------------------------------
 
@@ -112,7 +123,7 @@ ALTER TABLE `verification`
 -- AUTO_INCREMENT for table `advertisements`
 --
 ALTER TABLE `advertisements`
-  MODIFY `idno` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `idno` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
