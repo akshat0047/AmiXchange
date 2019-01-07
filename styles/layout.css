@@ -273,7 +273,6 @@ div, button{
 .mob-link{
   transition: all 0.3s;
   position: relative;
-  left:4%;
   opacity:0;
 }
 .mob-menu-list{
