@@ -41,7 +41,7 @@ while($row=mysqli_fetch_assoc($result))
     echo('  <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center  ad-card-column">
 
       <div class="ad-card">');
-        echo('<img src="assets/Products/'.$row['user_uid'].'/'.$row['Product_Pic'].'" class="ad-pic"/>
+        echo('<img src="assets/Products/'.$row['Product_Pic'].'" class="ad-pic"/>
         <div class="ad-card-body text-center">');
           echo('<p class="ad-head">'.$row["Product_Name"].'</p><hr class="ad-card-divider"/>');
           echo('<p class="ad-info">'. $row["Product_Type"].'<br/><i class="fas fa-rupee-sign"></i>'.$row['Product_Price'].'<br/></p>

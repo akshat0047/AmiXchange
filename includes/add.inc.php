@@ -29,6 +29,7 @@ if(isset($_POST['submit']))
     exit();
   }
   else{
+    echo($ptsp);
     $date=date('Y-m-d',strtotime(htmlentities($ptsp)));
         //check if input characters are valid
         if(!preg_match("/^[a-zA-Z]*/",$pn))
@@ -41,8 +42,9 @@ if(isset($_POST['submit']))
           {
             if($ppe==0){
                 if($pps > 3000){
-                  $dest="../assets/Products/".$_SESSION['u_id'];
-                  $ppnewname=$pn.'.'.'jpg';
+                  $dest="../assets/Products/";
+                  $time = date("Y-m-d H:i:s");
+                  $ppnewname=$time."-".$pn.'.'.'jpg';
                   if(! is_dir($dest))
                   {
                      mkdir($dest);
@@ -57,7 +59,7 @@ if(isset($_POST['submit']))
                  $im->setImageCompressionQuality(25);
 
                 // Write the image back
-                 $im->writeImages($dest."/".$ppnewname, true);
+                  $im->writeImages($dest.$ppnewname, true);
                   $sql="INSERT INTO advertisements(user_uid,Product_Name,Product_Type,Product_Description,time_since_purchase,Product_Pic,Product_Price)VALUES"."('".$_SESSION['u_id']."','$pn','$pt','$pds','$date','$ppnewname',$pp);";
                   $result=mysqli_query($conn,$sql) or die("database connection failure, inform the admin.");
                   header("Location: ../add.php?ad=success");                 

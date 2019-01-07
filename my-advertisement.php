@@ -32,7 +32,7 @@ else{
     echo('  <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center  ad-card-column">
 
         <div class="ad-card">');
-          echo('<img src="assets/Products/'.$_SESSION['u_id'].'/'.$_SESSION['Product_Pic'][$x].'" class="ad-pic"/>
+          echo('<img src="assets/Products/'.$_SESSION['Product_Pic'][$x].'" class="ad-pic"/>
           <div class="ad-card-body text-center">');
             echo('<p class="ad-head">'.$_SESSION["Product_Name"][$x].'</p><hr class="ad-card-divider"/>');
             echo('<p class="ad-info">'. $_SESSION["Product_Type"][$x].'<br/><i class="fas fa-rupee-sign"></i>'.$_SESSION['Product_Price'][$x].'<br/>'.

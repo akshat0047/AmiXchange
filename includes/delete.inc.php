@@ -13,7 +13,7 @@ include_once "db.inc.php";
        {
            if($_GET['id']==$row['idno'])
            {  
-               $file="../assets/Products/".$_SESSION['u_id'].'/'.$row['Product_Pic'];
+               $file="../assets/Products/".$row['Product_Pic'];
                chmod($file, 0644);
                unlink($file);
                $del_sql="delete from advertisements where idno=".$row['idno'];

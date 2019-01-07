@@ -12,7 +12,7 @@ echo '<section class="profile-section-know-more ">';
         <div class="row align-items-center">'.
 
     '<div  class=" col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  text-center   image-box">'.
-         '<img src="assets/Products/'.$user.'/'.$row1['Product_Pic'].'" class=" profile-dp-know-more text-center"/> 
+         '<img src="assets/Products/'.$row1['Product_Pic'].'" class=" profile-dp-know-more text-center"/> 
          </div>'.
     
      '<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center">'.
@@ -54,7 +54,7 @@ while($row2=mysqli_fetch_assoc($result2))
  if(!($row2['Product_Name']==$row1['Product_Name']))
  {
 echo ('<div class="know-more-card text-center">');
-echo('<img src="assets/Products/'.$user.'/'.$row2['Product_Pic'].'" class=" ad-pic"/>
+echo('<img src="assets/Products/'.$row2['Product_Pic'].'" class=" ad-pic"/>
 <div class="know-more-card-body text-center">');
   echo('<p class="ad-head">'.$row2["Product_Name"].'</p><hr class="ad-card-divider"/>');
   echo('<p class="ad-info"'. $row2["Product_Type"].'<br/><i class="fas fa-rupee-sign"></i>'.$row2["Product_Price"].'<br/>'.
