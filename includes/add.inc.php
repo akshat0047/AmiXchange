@@ -1,17 +1,13 @@
 <?php
+session_start();
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
-session_start();
 if(isset($_POST['submit']))
 {
   include_once "db.inc.php";
   $pn=mysqli_real_escape_string($conn,$_POST["productname"]);
-  if(mysqli_num_rows(mysqli_query($conn,"SELECT Product_Name from advertisements where ((user_uid='".$_SESSION['u_id']."')&&(Product_Name='".$pn."'))"))>0)
-  {
-    header("Location: ../add.php?pn=Already Exists");
-    exit();
-  }
-  else{
+  $unm=$_SESSION['u_id'];
+  
   $pt=mysqli_real_escape_string($conn,$_POST["producttype"]);
   $ptsp=mysqli_real_escape_string($conn,$_POST["tsp"]);
   $pp=mysqli_real_escape_string($conn,$_POST["price"]);
@@ -45,10 +41,7 @@ if(isset($_POST['submit']))
                   $dest="../assets/Products/";
                   $time = date("Y-m-d H:i:s");
                   $ppnewname=$time."-".$pn.'.'.'jpg';
-                  if(! is_dir($dest))
-                  {
-                     mkdir($dest);
-                  }
+                
                   $im = new Imagick($pptn);
 
                  // Optimize the image layers
@@ -78,7 +71,7 @@ else{
 
 
 
-      }}}}
+      }}}
 else{
   header("Location: ../add.php?upload=crashed");
 }
