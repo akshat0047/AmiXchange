@@ -30,7 +30,7 @@ include_once "includes/db.inc.php";
 <meta name="description" content="Sell your products in Amity Lucknow Campus">
 <meta name="keywords" content="Buy,Sell,Earn,Amity,Lucknow,Notes,Pdf,Books,Stationary">
 <meta name="author" content="Akshat Pande">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <link rel="shortcut icon" type="image/svg" href="assets/Display/favicon.svg"/>
 <link rel="stylesheet" href="styles/layout.css">
 <link href="https://fonts.googleapis.com/css?family=Chela+One" rel="stylesheet">
@@ -47,7 +47,7 @@ include_once "includes/db.inc.php";
 
 <div id="menu-mobile-con" class="menu-mobile-con text-center">
 <span><i id="close-menu" class="fas fa-times mob-menu-close-icon"></i>
-  <h4>DASHBOARD</h4><hr/></span>
+  <h4 >DASHBOARD</h4><hr/></span>
   <ul class="mob-menu-list text-center">
     <a href='index.php' class='mob-link'><li class='mob-menu-list-element' >HOME</li></a>
     <?php if(!isset($_SESSION['u_id'])){echo"<a href='signup.php' class='mob-link'><li class='mob-menu-list-element' >SIGNUP</li></a>";}?>
@@ -79,11 +79,11 @@ include_once "includes/db.inc.php";
 
   <header id="headblock" class="container-fluid  headblock">
 <div class="row align-items-center header-row">
-  <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center ">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center ">
   <img src="assets/Display/AmiXchange_logo_dark.svg.png" class="header-logo"/>
   </div>';
 
-  echo '<div class="col-sm-6 col-md-6 col-lg-6 text-center search-block">
+  echo '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center search-block">
   <form action="index.php" class="search-form" method="GET">
      <input type="search" name="search" class="input-search" placeholder="Search Products"/>
      <button type="submit" name="submit" class="btn-sm btn-warning btn-search" value="submit"><i class="fa fa-search" aria-hidden="true"></i></button>

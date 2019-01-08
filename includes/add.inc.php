@@ -1,13 +1,12 @@
 <?php
-session_start();
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
+session_start();
 if(isset($_POST['submit']))
 {
   include_once "db.inc.php";
-  $pn=mysqli_real_escape_string($conn,$_POST["productname"]);
   $unm=$_SESSION['u_id'];
-  
+  $pn=mysqli_real_escape_string($conn,$_POST["productname"]);
   $pt=mysqli_real_escape_string($conn,$_POST["producttype"]);
   $ptsp=mysqli_real_escape_string($conn,$_POST["tsp"]);
   $pp=mysqli_real_escape_string($conn,$_POST["price"]);
@@ -25,8 +24,7 @@ if(isset($_POST['submit']))
     exit();
   }
   else{
-    echo($ptsp);
-    $date=date('Y-m-d',strtotime(htmlentities($ptsp)));
+    $date=$ptsp;
         //check if input characters are valid
         if(!preg_match("/^[a-zA-Z]*/",$pn))
         {
@@ -37,11 +35,10 @@ if(isset($_POST['submit']))
           if(in_array($ppext,$allowtype))
           {
             if($ppe==0){
-                if($pps > 3000){
+                if($pps < 2000000){
                   $dest="../assets/Products/";
                   $time = date("Y-m-d H:i:s");
                   $ppnewname=$time."-".$pn.'.'.'jpg';
-                
                   $im = new Imagick($pptn);
 
                  // Optimize the image layers
@@ -53,19 +50,21 @@ if(isset($_POST['submit']))
 
                 // Write the image back
                   $im->writeImages($dest.$ppnewname, true);
-                  $sql="INSERT INTO advertisements(user_uid,Product_Name,Product_Type,Product_Description,time_since_purchase,Product_Pic,Product_Price)VALUES"."('".$_SESSION['u_id']."','$pn','$pt','$pds','$date','$ppnewname',$pp);";
-                  $result=mysqli_query($conn,$sql) or die("database connection failure, inform the admin.");
+                  $sql="INSERT INTO advertisements(user_uid,Product_Name,Product_Type,Product_Description,time_since_purchase,Product_Pic,Product_Price)VALUES('$unm','$pn','$pt','$pds','$date','$ppnewname',$pp);";
+                  $result=mysqli_query($conn,$sql);
+                  if($result===false)
+                  die("Database Connection Error, Inform Admin");
                   header("Location: ../add.php?ad=success");                 
                 }
                 else{
-                  header("Location: ../add.php?imerr=upload below 3 mb");
+                  header("Location: ../add.php?imerr=upload below 2 mb");
                   exit();
                 }
 
 
   }
 else{
-  header("Location: ../add.php?imerr=upload below 3 mb");
+  header("Location: ../add.php?fail=yes");
 }
         }
 

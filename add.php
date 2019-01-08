@@ -3,7 +3,7 @@
 <section class="post-add-section">
 
   <div class="row add-form-row">
-    <div class=" offset-md-3 offset-lg-3 col-sm-12 col-md-6 col-lg-6 text-center">
+    <div class=" offset-md-3 offset-lg-3 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center">
       <div class="add-form ">
       <div class="error"><?php if(isset($_GET['imerr'])){echo($_GET['imerr']);}?></div>
     <form class="text-center" action="includes/add.inc.php" method="POST" enctype="multipart/form-data">

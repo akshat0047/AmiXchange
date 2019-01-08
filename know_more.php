@@ -11,36 +11,35 @@ echo '<section class="profile-section-know-more ">';
   echo '<div class="know-more-inner">
         <div class="row align-items-center">'.
 
-    '<div  class=" col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  text-center   image-box">'.
+    '<div  class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  text-center   image-box">'.
          '<img src="assets/Products/'.$row1['Product_Pic'].'" class=" profile-dp-know-more text-center"/> 
          </div>'.
     
-     '<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center">'.
-      '<div class="profile-info-know-more">
-        <div class="row ">
-          <div id="info-que" class="col-6 col-sm-6 col-md-6 col-lg-6 ">
-          <div class="row">
-          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-           <span class="infos text-center">USER:</span></div>
-           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-           <span class="infos text-center">ITEM NAME:</span>
-           <span class="infos text-center">PURCHASED/STARTED:</span>
-           <span class="infos text-center">PRICE:</span>
-         </div></div></div>'.
-
-      '<div id="info-ans" class="col-6 col-sm-6 col-md-6 col-lg-6 ">'.
-              '<span class="infos text-center">'.$row['user_first']." ".$row['user_last'].'</span>'.
-              '<span class="infos text-center">'.$row1['Product_Name'].'</span>'.
-              '<span class="infos text-center">'.$row1['time_since_purchase'].'</span>'.
-              '<span class="infos text-center"><i class="fas fa-rupee-sign"></i>'.$row1['Product_Price'].'</span>'.
-        '</div>
-      </div>
-      <br/><span class="text-center desc-head">ITEM DESCRIPTION:</span><br/>
-        <p class="text-center desc">'.$row1['Product_Description'].'</p>
-      </div></div></div>
+     '<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center">'.
+      '<table class="profile-info-know-more">
+        <tr>
+        <td><span class="infos text-center">USER:</span></td>
+        <td><span class="infos text-center">'.$row['user_first']." ".$row['user_last'].'</span></td>
+        </tr>
+        <tr>
+        <td><span class="infos text-center">ITEM NAME:</span></td>
+        <td><span class="infos text-center">'.$row1['Product_Name'].'</span></td>
+        </tr>
+        <tr>
+        <td> <span class="infos text-center">PURCHASED/STARTED:</span></td>
+        <td><span class="infos text-center">'.$row1['time_since_purchase'].'</span></td>
+        </tr>
+        <tr>
+        <td><span class="infos text-center">PRICE:</span></td>
+        <td><span class="infos text-center"><i class="fas fa-rupee-sign"></i>'.$row1['Product_Price'].'</span></td>
+        </tr>
+        <tr><td colspan="2"><span class="text-center desc-head">ITEM DESCRIPTION:</span></tr></td>
+        <tr><td colspan="2"><p class="text-center desc">'.$row1['Product_Description'].'</p></tr></td>
+        </table>
+      </div></div>
 
       <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
           <br/><a href="user-details.php?user='.$user.'" class="btn btn-warning seller-info-button" >SELLER DETAILS</a>
         </div>
         </div>
@@ -51,7 +50,7 @@ $sql2="select * from advertisements where user_uid='".$user."';";
 $result2=mysqli_query($conn,$sql2);
 while($row2=mysqli_fetch_assoc($result2))
 {
- if(!($row2['Product_Name']==$row1['Product_Name']))
+ if(!($row2['idno']==$row1['idno']))
  {
 echo ('<div class="know-more-card text-center">');
 echo('<img src="assets/Products/'.$row2['Product_Pic'].'" class=" ad-pic"/>

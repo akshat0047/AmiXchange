@@ -6,7 +6,7 @@ include_once "header.php";
 <section class="container-fluid home">
 
   <div class="row signup-form-row">
-    <div class=" offset-md-3 offset-lg-3 col-sm-12 col-md-6 col-lg-6 text-center">
+    <div class="offset-md-3 offset-lg-3 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center">
       <div class="signup-form ">
     <form class="text-center" action="includes/signup.inc.php" method="POST">
       <h4 id="Log-head" class="log-head text-center">SIGN-UP</h4>

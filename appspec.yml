@@ -5,6 +5,9 @@ files:
   - source: /
     destination: /var/www/html/
 
+Hooks:
+- BeforeInstall: /home/backup_amixchange.sh
+
 
 
 

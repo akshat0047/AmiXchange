@@ -3,7 +3,7 @@
 <section class="post-add-section">
 
   <div class="row add-form-row">
-    <div class=" offset-md-3 offset-lg-3 col-sm-12 col-md-6 col-lg-6 text-center">
+    <div class="offset-md-3 offset-lg-3 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center">
       <div class="add-form ">
     <form class="text-center" action="includes/report.inc.php" method="POST">
       <h4 id="Log-head" class="log-head text-center">REPORT DETAILS</h4>

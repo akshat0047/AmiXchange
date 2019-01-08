@@ -90,25 +90,17 @@ div, button{
   border: solid black 1px;
   box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);
 }
-.know-more-inner-user{
-  position:absolute;
-  top:0px;
-  left:0px;
-  right:0px;
-  bottom:0px;
-  margin:auto;
-}
-@media screen and (max-width:573px) and (max-height:721px) {
+@media screen and (max-width:573px) and (max-height:1000px) {
   .headblock{
     position: relative;
     transition:all 0.5s;
-    padding:27px;
+    padding:15px;
   }
   .store{
     padding-top:34%;
   }
   .myads-section{
-    padding-top:34%;
+    padding-top:7%;
   }
   .main-heading{
     font-size: 1.6em;
@@ -178,16 +170,17 @@ div, button{
       background-color:rgba(0,0,0,0.8);
       color: white;
       height:auto;
+      min-height: 100%;
       overflow: hidden;
-      padding: 20px;
+      padding: 40px;
       margin-top:30px;
       box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.4);
       width:100%;
     }
     .profile-section-know-more-details{
       position: relative;
+      min-height: 140%;
       width:100%;
-      height:auto;
       background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
     }
    
@@ -293,8 +286,13 @@ div, button{
   cursor:pointer;
   position: relative;
   list-style: none;
+  list-style-type: none;
   margin:auto;
-  right:8%;
+  left:0px;
+  right:0px;
+  top:0px;
+  bottom:0px;
+  margin-right:11%;
 }
 .mob-menu-list-element{
    margin:12px;
@@ -340,6 +338,7 @@ div, button{
 .edit-profile{
   width:100%;
   padding:10px;
+  min-height: 80%;
   height:auto;
   font-size:0.8em;
   box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
@@ -448,6 +447,7 @@ div, button{
   position: relative;
   width:100%;
   height:auto;
+  min-height:105%;
   padding:50px;
   box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
   background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
@@ -481,12 +481,11 @@ div, button{
 }
 .ad-block{
   position: relative;
-  top: 25px;
   border-radius: 10px;
-  width:90%;
+  width:100%;
   transition: all 1s;
   margin:auto;
-  padding: 25px;
+  padding: 15px;
 }
 .home{
   position: relative;
@@ -503,17 +502,17 @@ div, button{
   background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
 }
 }
-@media screen and (min-width:574px) and (min-height:350px) and (max-height:999px){
+@media screen and (min-width:574px) and (max-width:800px) and (max-height:900px){
   .headblock{
     position: relative;
     transition:all 0.5s;
     padding:27px;
   }
   .store{
-    padding-top:11%;
+    padding-top:31%;
   }
   .myads-section{
-    padding-top:11%;
+    padding-top:7%;
   }
   .nav-btns{
     position: relative;
@@ -618,7 +617,7 @@ div, button{
     background-color:rgba(0,0,0,0.8);
     color: white;
     height:60%;
-    padding: 20px;
+    padding: 40px;
     box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.4);
     white-space: nowrap;
     width:100%;
@@ -815,7 +814,8 @@ div, button{
 .profile-section{
   position: relative;
   width:100%;
-  height:100%;
+  height:auto;
+  min-height:110;
   padding:7px;
   box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
   background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
@@ -861,12 +861,11 @@ div, button{
 }
 .ad-block{
   position: relative;
-  top: 25px;
   border-radius: 10px;
-  width:90%;
+  width:100%;
   transition: all 1s;
   margin:auto;
-  padding: 25px;
+  padding: 15px;
 }
 .home{
   position: relative;
@@ -883,17 +882,17 @@ div, button{
   background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
 }
 }
-@media screen and (min-width:1500px) and (min-height:1000px){
+@media screen and (min-width:801px) and (max-height:900px){
   .headblock{
     position: relative;
     transition:all 0.5s;
     padding:27px;
   }
   .store{
-    padding-top:11%;
+    padding-top:17%;
   }
   .myads-section{
-    padding-top:11%;
+    padding-top:7%;
   }
   .nav-btns{
     position: relative;
@@ -998,7 +997,388 @@ div, button{
     background-color:rgba(0,0,0,0.8);
     color: white;
     height:60%;
-    padding: 20px;
+    padding: 40px;
+    box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.4);
+    white-space: nowrap;
+    width:100%;
+    top:50px;
+  }
+  .profile-section-know-more-details{
+    position: relative;
+    width:100%;
+    height:90%;
+    background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
+  }
+  
+  .know-more-inner{
+    padding:4%;
+  }
+  .footer-img{
+    position: relative;
+    width:25%;
+    height:auto;
+    padding:8px;
+  }
+  .footer-heading{
+    font-weight:500;
+    color:rgb(255, 255, 255);
+    font-size:1em;
+  }
+  .footer-text{
+    color:rgb(182, 180, 180);
+    font-size:1em;
+  }
+  .footer-icons{
+    color:rgb(182, 180, 180) !important;
+    cursor:pointer;
+    font-size:1.5em;
+    margin:3px;
+    transition: all 0.3s;
+  }
+  .footer-logo{
+    position: relative;
+    width:80%;
+    height: auto;
+  }
+  .header-logo{
+    position: relative;
+    width:45%;
+    height: auto;
+  }
+  /*SEARCH
+========*/
+
+.input-search{
+  display: inline;
+  box-shadow:inset 0px 0px 2px 2px rgba(0,0,0,0.3) !important;
+  border:none;
+  border-top-left-radius:2px !important;
+  border-bottom-left-radius:2px !important;
+  padding-top:3px !important;
+  padding-bottom:3px !important;
+  padding-left:8px !important;
+  padding-right:8px !important;
+}
+.btn-search{
+  position: relative;
+  border:none;
+  right:4px;
+  padding-top:4.5px !important;
+  padding-bottom:4.5px !important;
+  padding-left:10px !important;
+  padding-right:10px !important;
+  border-top-left-radius:0px !important;
+  border-bottom-left-radius:0px !important;
+  display: inline;
+}
+.menu-mobile-con{
+  display:none;
+}
+.profile-info{
+  position: relative;
+  border-radius:10px;
+  background-color:rgba(0,0,0,0.8);
+  color: white;
+  padding: 20px;
+  box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.4);
+  white-space: nowrap;
+  margin-bottom:5px;
+}
+/*EDIT PROFILE SECTION 
+======================*/
+
+.edit-profile{
+  width:100%;
+  padding:20px;
+  height:auto;
+  box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
+  background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
+}
+.edit-row{
+  position: relative;
+  top:15%;
+}
+.edit-label{
+  position: relative;
+  display:block;
+  font-size: 1.0em;
+  top:12px;
+}
+.edit-submit{
+  position:relative;
+  right:33%;
+}
+.report-btn{
+  position: relative;
+  z-index:10;
+  top:60px;
+}
+.ev_info{
+  display:none;
+  position: fixed;
+  box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
+  z-index:500;
+  width:75%;
+  height:85%;
+  background-color: rgba(251,251,251,0.9);
+  margin:auto;
+  overflow:auto;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  border-radius:10px;
+  transition: all 1s;
+}
+.image-row-ami{
+  position: relative;
+  top:10%;
+  margin-bottom: 5%;
+}
+.screend-column{
+  display:none;
+}
+.screenm-column{
+  position: relative;
+  margin:auto;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+}
+.tute-screenm{
+  position: relative;
+  margin:auto;
+  width:60%;
+  top:40px;
+  margin:3px;
+}
+.ami-btn-row{
+  position: relative;
+  top:15%;
+}
+.close-ami{
+  position: relative;
+  cursor:pointer;
+  z-index:100;
+  border-radius: 3px;
+  background-color:rgba(0,0,0,0.8);
+  padding-left:4px;
+  padding-right:4px;
+  left:30%;
+  color:white !important;
+}
+.input-email{
+  position: relative;
+  width:67%;
+  border-radius: 5px;
+  padding:5px;
+  margin:5px;
+}
+.msg-ami{
+  position: absolute;
+  font-size:1.0em;
+  left:0px;
+  right:15px;
+  margin:auto;
+  top:7%;
+}
+.delete-dialog{
+  width:30%;
+  height:160px;
+}
+.profile-dp-know-more{
+  width: 55%;
+  height:350px;
+}
+.profile-section{
+  position: relative;
+  width:auto;
+  min-height:115%;
+  height:100%;
+  padding:7px;
+  box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
+  background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
+}
+.logout-form{
+  position: absolute;
+  z-index: 20;
+}
+.post-add-section{
+  position: relative;
+  width:100%;
+  height:auto;
+  padding:50px;
+  box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
+  background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
+}
+.profile-section-know-more{
+  position: relative;
+  width:100%;
+  height:auto;
+  background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
+}
+.ad-pagin{
+  position:relative;
+  margin:auto;
+  left:0px;
+  right:0px;
+  bottom:0;
+  padding:4px;
+}
+.store{
+  width:100%;
+  height:auto;
+  box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
+  background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
+}
+.myads-section{
+  position: relative;
+  width:100%;
+  height:auto;
+  box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
+  background-image:linear-gradient(to bottom,rgb(43, 133, 218),rgb(77, 106, 133))
+}
+.ad-block{
+  position: relative;
+  border-radius: 10px;
+  width:100%;
+  transition: all 1s;
+  margin:auto;
+  padding: 15px;
+}
+.home{
+  position: relative;
+  width:100%;
+  height:auto;
+  box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
+  background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
+}
+.home-login{
+  position: relative;
+  width:100%;
+  height:100%;
+  box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.3);
+  background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
+}
+}
+@media screen and (min-width:801px) and (min-height:700px) and (max-height:6000px) and (orientation:landscape){
+  .headblock{
+    position: relative;
+    transition:all 0.5s;
+    padding:27px;
+  }
+  .store{
+    padding-top:15%;
+    min-height: 80%;
+  }
+  .myads-section{
+    padding-top:7%;
+  }
+  .nav-btns{
+    position: relative;
+    margin:12px;
+    right:1%;
+    transition: all 0.5s;
+    font-weight: 700;
+    color:rgb(100, 92, 92);
+    display: inline-block;
+  }
+  .nav-btns:hover{
+    background-color:rgb(25, 129, 189);
+    color:white !important;
+  }
+  .menu-mobile{
+    display: none;
+  }
+  .mobile{
+    display: none;
+  }
+  .login-form{
+    top:95%;
+  }
+  .forgot-password-form{
+    top:135%;
+  }
+  .main-heading{
+    font-size: 2.0em;
+    }
+    .profile-activity-box-desktop{
+      position: relative;
+      margin-top: 15%;
+      right:2%;
+    }
+    .profile-activity-desktop{
+      position: relative;
+      display: block;
+      height:20%;
+      padding:13px;
+      border-radius:5px;
+      cursor:pointer;
+      margin:17px;
+      overflow-y: hidden;
+      box-shadow:  0px 0px 3px 3px rgba(0,0,0,0.2);
+    }
+  .signup-form{
+    position: relative;
+    display:block;
+    padding:10px;
+    margin-top:10%;
+    margin-bottom:10%;
+    box-shadow: 0px 0px 6px 6px rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 5%;
+   }
+
+.add-form{
+  position: relative;
+  display:block;
+  padding:10px;
+  box-shadow: 0px 0px 6px 6px rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 5%;
+}
+
+   .side-scrl{
+     position:fixed;
+     right:0px;
+     width:3%;
+     height:6%;
+     overflow: hidden;
+     background-color: black;
+     bottom:400px;
+     border: solid black 1px;
+     border-top-left-radius: 25%;
+     border-bottom-left-radius:  25%;
+     box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.2);
+     transition:all 0.5s;
+     color:white;
+     cursor:pointer;
+   }
+ .side-scrl:hover{
+   background-color: grey;
+   transform:rotateX(360deg);
+ }
+ .ad-pic{
+  width:52%;
+  height:180px;
+  margin:auto;
+  border-radius:7%;
+}
+   .display-login{
+     width:140%;
+     height: auto;
+     position: absolute;
+     top:170px;
+     padding-left: 80px;
+   }
+   .profile-info-know-more{
+    position: relative;
+    border-radius:10px;
+    background-color:rgba(0,0,0,0.8);
+    color: white;
+    height:60%;
+    padding: 40px;
     box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.4);
     white-space: nowrap;
     width:100%;
@@ -1230,12 +1610,11 @@ div, button{
 }
 .ad-block{
   position: relative;
-  top: 25px;
   border-radius: 10px;
-  width:90%;
+  width:100%;
   transition: all 1s;
   margin:auto;
-  padding: 25px;
+  padding: 15px;
 }
 .home{
   position: relative;
@@ -1252,18 +1631,18 @@ div, button{
   background-image:linear-gradient(to bottom,rgb(25, 129, 189),rgb(18, 37, 61));
 }
 }
-@media screen and (min-width:700px) and (max-width:1400px) and (min-height:1000px) and (max-height:2000px){
+@media screen and (min-width:600px) and (min-height:901px) and (max-height:6000px) and (orientation:portrait){
   .headblock{
     position: relative;
     transition:all 0.5s;
-    padding:27px;
+    padding:15px;
   }
   
   .store{
     padding-top:11%;
   }
   .myads-section{
-    padding-top:11%;
+    padding-top:7%;
   }
   .nav-btns{
     position: relative;
@@ -1377,7 +1756,7 @@ div, button{
     background-color:rgba(0,0,0,0.8);
     color: white;
     height:60%;
-    padding: 20px;
+    padding: 40px;
     box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.4);
     white-space: nowrap;
     width:100%;
@@ -1631,12 +2010,11 @@ div, button{
 }
 .ad-block{
   position: relative;
-  top: 31%;
   border-radius: 10px;
-  width:90%;
+  width:100%;
   transition: all 1s;
   margin:auto;
-  padding: 25px;
+  padding: 15px;
 }
 .home{
   position: relative;
@@ -1685,6 +2063,8 @@ div, button{
 .desc-head{
   position: relative;
   margin:auto;
+  left:0px;
+  right:0px;
   font-family: 'Chela One', cursive;
 }
 .desc{
@@ -1692,6 +2072,8 @@ div, button{
   margin:auto;
   width:100%;
   height:auto;
+  left:0px;
+  right:0px;
   white-space: initial;
   font-family: 'Rubik', sans-serif;
 }

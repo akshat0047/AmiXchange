@@ -5,7 +5,7 @@ include_once "includes/db.inc.php";
 <section class="profile-section">
   <div class="profile-box">
   <div class="row">
-    <div  class="col-12 col-sm-6 col-md-6 col-lg-6 text-center image-box">
+    <div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center image-box">
 
     <form action="includes/dp.inc.php" method="POST" enctype="multipart/form-data">
 
@@ -18,7 +18,7 @@ include_once "includes/db.inc.php";
 
     </div>
 
-  <div  class="col-12 col-sm-6 col-md-6 col-lg-6 profile-activity-box-desktop  desktop">
+  <div  class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 profile-activity-box-desktop  desktop">
       <ul >
         <a href="includes/advertisement.inc.php" ><li id="activity-button1" class="profile-activity-desktop btn-warning text-center">MY ADDS</li></a>
         <?php
@@ -45,10 +45,10 @@ include_once "includes/db.inc.php";
 </div>
 <br/>
     <div class="row profile-info-row">
-      <div class="offset-md-1 offset-lg-1 col-12 col-sm-12 col-md-4 col-lg-4 text-center  profile-info">
+      <div class="offset-md-1 offset-lg-1 col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center  profile-info">
 
         <div class="row">
-          <div id="info-que" class="col-6 col-sm-6 col-md-6 col-lg-6 ">
+          <div id="info-que" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
            <span class="infos text-center">NAME:</span>
            <span class="infos text-center">COURSE:</span>
            <span class="infos text-center">SEMESTER:</span>
@@ -56,7 +56,7 @@ include_once "includes/db.inc.php";
            <?php if($row['user_pv']==0){echo '<span class="infos text-center">PHONE:</span>';}?>
          </div>
 
-      <div id="info-ans" class="col-6 col-sm-6 col-md-6 col-lg-6 ">
+      <div id="info-ans" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
               <span class="infos text-center"> <?php echo $_SESSION['u_first'].' '.$_SESSION['u_last'] ; ?></span>
               <span class="infos text-center"> <?php echo $_SESSION['u_course']; ?></span>
               <span class="infos text-center"> <?php echo $_SESSION['u_semester']; ?></span>
@@ -77,15 +77,15 @@ include_once "includes/db.inc.php";
 <div id="emailverif" class="ev_info">
 <div class="msg-ami text-center">CHECK YOUR AMIZONE EMAIL TO VERIFY!<br/>Do Check The Spam Box<span class="close-ami" onclick="ev_info_close()"><i class="fas fa-times"></i><span></div>        
   <div class="row text-center">
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 screend-column">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 screend-column">
           <img src="assets/Display/screend.jpg" class="tute-screend"/>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 screenm-column">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 screenm-column">
           <img src="assets/Display/screenm.jpg" class="tute-screenm"/>
         </div>
 </div>
 <div class="row ami-btn-row">
-  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
     <a target="_blank" href="https://student.amizone.net/"><button class="btn btn-success" >AMIZONE</button></a>
         </div></div>
         </div>

@@ -38,7 +38,7 @@ echo('<section class="store">
 <div class="row item-row-store">');
 while($row=mysqli_fetch_assoc($result))
 {
-    echo('  <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center  ad-card-column">
+    echo('  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center  ad-card-column">
 
       <div class="ad-card">');
         echo('<img src="assets/Products/'.$row['Product_Pic'].'" class="ad-pic"/>
@@ -193,7 +193,7 @@ $(document).ready(function(){
       $("#headblock").css("padding","5");
     }
     else{
-      $("#headblock").css("padding","20");
+      $("#headblock").css("padding","15");
     }
   }
 });

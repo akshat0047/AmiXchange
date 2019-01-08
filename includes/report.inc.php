@@ -17,8 +17,10 @@ $result=mysqli_query($conn,$sql);
 else{
     $reason=$_POST['reason'];
     $descrip=$_POST['description'];
-    $sql="INSERT INTO reports(user_uid,user_rc,reason,descrip) VALUES ('$reported','$rc','$reason','$descrip');";
+    $sql1="INSERT INTO reports(user_uid,user_rc,reason,descrip) VALUES ('$report',$rc,'$reason','$descrip');";
+    mysqli_query($conn,$sql1);
     report_email($report,$reason,$descrip);
+    header("Location: ../report.php?report=success");
 }
 }
 else{

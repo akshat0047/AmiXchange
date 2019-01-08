@@ -17,7 +17,7 @@ if($check>0)
         echo '<section class="container-fluid home-login">
         <div class="row forgot-password-form-row">
       
-         <div class="offset-sm-2 offset-md-3 offset-lg-3 col-12 col-sm-8 col-md-6 col-lg-6 text-center">
+         <div class="offset-xs-2 offset-sm-2 offset-md-3 offset-lg-3 col-xs-12 col-sm-8 col-md-6 col-lg-6 col-xl-6 text-center">
             <div class="forgot-password-form">
           <form class="text-center" action="includes/password-reset.inc.php" method="POST"> 
           <span class="error">RESET PASSWORD</span>

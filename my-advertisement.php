@@ -29,7 +29,7 @@ else{
     {
       if(isset($_SESSION['Product_Name'][$x]))
       {
-    echo('  <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center  ad-card-column">
+    echo('  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center  ad-card-column">
 
         <div class="ad-card">');
           echo('<img src="assets/Products/'.$_SESSION['Product_Pic'][$x].'" class="ad-pic"/>

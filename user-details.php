@@ -5,9 +5,9 @@ $sql="select * from users where user_uid='".$_GET['user']."';";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($result);
 echo('<section class="profile-section-know-more-details">
-<div class="know-more-inner-user">
+<div class="know-more-inner">
 <div class="row align-items-center user-details-row">'.
-'<div  class=" col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  text-center   image-box">'.
+'<div  class=" col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  text-center   image-box">'.
          '<img src="assets/Users/');if(isset($row['user_dp'])){
            echo($row['user_dp']);
          }
@@ -16,7 +16,7 @@ echo('<section class="profile-section-know-more-details">
          } echo('" class="profile-dp-know-more text-center"/> 
          </div>'.
     
-     '<div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 text-center">'.
+     '<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 text-center">'.
       '<div class="profile-info-know-more">
         <div class="row ">
           <div id="info-que" class="col-6 col-sm-6 col-md-6 col-lg-6 ">
@@ -28,7 +28,6 @@ echo('<section class="profile-section-know-more-details">
            if(isset($row['user_phone'])){echo('<span class="infos text-center">PHONE:</span>');}
            echo('<span class="infos text-center">EMAIL:</span>
          </div></div></div>');
-
       echo('<div id="info-ans" class="col-6 col-sm-6 col-md-6 col-lg-6">'.
               '<span class="infos text-center">'.$row['user_first'].' '.$row['user_last'].'</span>'.
               '<span class="infos text-center">'.$row['user_course'].'</span>'.
@@ -55,6 +54,5 @@ echo('<section class="profile-section-know-more-details">
       echo('</div></div></div>   
       </section>');
   
-
 include_once "footer.php";
 ?>
