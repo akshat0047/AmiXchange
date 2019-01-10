@@ -3,7 +3,7 @@
 
 $database= "localhost";
 $databaseuser="root";
-$databasepwd="akshat0047";
+$databasepwd="Akshat0047$";
 $databasename="STORE";
 
 $conn= mysqli_connect($database,$databaseuser,$databasepwd,$databasename);
