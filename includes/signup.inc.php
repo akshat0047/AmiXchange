@@ -33,18 +33,7 @@ else{
         if(!(strlen($pwd)<6))
       {
         //checking Email
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL))
-          {
-            header("Location: ../signup.php?emailerr=Invalid");
-            exit();
-          }
-          else{
-            if(!preg_match("/student.amity.edu/",$email))
-            {
-              header("Location: ../signup.php?emailerr=NOT AMIZONE EMAIL");
-              exit();
-            }
-          else{            
+          
           $sql= "SELECT user_first FROM users WHERE user_email='$email'";
           $result= mysqli_query($conn,$sql);
           $resultCheck = mysqli_num_rows($result);
@@ -55,10 +44,10 @@ else{
       else{
 
            $sql= "SELECT user_first FROM users WHERE user_uid='$unm'";
-           $result= mysqli_query($conn,$sql);
-           $resultCheck = mysqli_num_rows($result);
+           $result1= mysqli_query($conn,$sql);
+           $resultCheck1 = mysqli_num_rows($result);
 
-           if($resultCheck > 0){
+           if($resultCheck1 > 0){
              header("Location: ../signup.php?ut=USER TAKEN");
              exit();
            }
@@ -66,6 +55,7 @@ else{
              //insert the user into database
              $at=rand(1000,100000);
              $pwd=password_hash($pwd,PASSWORD_DEFAULT);
+             $pwd= mysqli_real_escape_string($conn,$pwd);
              $sql = "INSERT INTO users(user_uid,user_pwd,user_first,user_last,user_email,user_course,user_semester)VALUES('$unm','$pwd','$first','$last','$email','$course',$sem);";
              $sql1= "INSERT INTO verification(user_uid,user_at,user_rc,user_ev,user_pv)VALUES('$unm',$at,0,1,1);";
              if(!(mysqli_query($conn,$sql)===false)){
@@ -79,12 +69,12 @@ else{
                 }
              }
              else{
-               die("DATABASE ERROR, PLEASE INFORM THE ADMIN");
+               die("DATABASE ERROR, PLEASE INFORM THE ADMIN".mysqli_error($conn));
              }
              
            }
       }
-    }}}
+    }
     else{
       header("Location: ../signup.php?pwd=atleast 6 characters");
              exit();

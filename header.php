@@ -25,12 +25,16 @@ include_once "includes/db.inc.php";
     enable_page_level_ads: true
   });
 </script>
+<!-- GOOGLE SIGN-IN -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
 <title>AmiXchange</title>
 <meta charset="UTF-8">
 <meta name="description" content="Sell your products in Amity Lucknow Campus">
 <meta name="keywords" content="Buy,Sell,Earn,Amity,Lucknow,Notes,Pdf,Books,Stationary">
 <meta name="author" content="Akshat Pande">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="google-signin-client_id" content="516410898658-cbcv97kepl722sbto7vvl458i8cp3gi3.apps.googleusercontent.com">
 <link rel="shortcut icon" type="image/svg" href="assets/Display/favicon.svg"/>
 <link rel="stylesheet" href="styles/layout.css">
 <link href="https://fonts.googleapis.com/css?family=Chela+One" rel="stylesheet">

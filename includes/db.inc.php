@@ -2,7 +2,7 @@
 
 
 $database= "localhost";
-$databaseuser="root";
+$databaseuser="phpmyadmin";
 $databasepwd="Akshat0047$";
 $databasename="STORE";
 

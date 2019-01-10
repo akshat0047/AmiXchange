@@ -29,7 +29,7 @@ include_once "includes/db.inc.php";
          {
           if($row['user_ev']==1)
           {
-            echo '<li id="activity-button2" onclick="ev_info()" class="profile-activity-desktop btn-warning text-center">VERIFY EMAIL</li>';
+            echo '<li id="activity-button2" class="profile-activity-desktop btn-warning text-center">VERIFY EMAIL</li>';
           }
           else if($row['user_pv']==1){
             echo '<a href="phone-verification-enquiry.php" ><li id="activity-button2" class="profile-activity-desktop btn-warning text-center">VERIFY PHONE NUMBER</li></a>';
@@ -72,7 +72,7 @@ include_once "includes/db.inc.php";
         
 </section>
 
-<!--EMAIL INFO -->
+<!--EMAIL INFO 
 
 <div id="emailverif" class="ev_info">
 <div class="msg-ami text-center">CHECK YOUR AMIZONE EMAIL TO VERIFY!<br/>Do Check The Spam Box<span class="close-ami" onclick="ev_info_close()"><i class="fas fa-times"></i><span></div>        
@@ -88,10 +88,9 @@ include_once "includes/db.inc.php";
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
     <a target="_blank" href="https://student.amizone.net/"><button class="btn btn-success" >AMIZONE</button></a>
         </div></div>
-        </div>
+        </div>-->
 <!--          -->
 <?php include_once "footer.php"?>
-<script src="js/index.js"></script>
 <script>
 $("input").change(function(){
    $("form").submit();
