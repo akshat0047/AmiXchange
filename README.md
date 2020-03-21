@@ -1,2 +1,1 @@
-# Login-System
-A login system for beginners
+# A complete Product Selling and Buying E-Commerce System
