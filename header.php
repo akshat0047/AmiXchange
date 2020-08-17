@@ -7,24 +7,7 @@ include_once "includes/db.inc.php";
 <html>
 
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121535119-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-121535119-2');
-</script>
-
-<!-- GOOGLE ADS -->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1772316900422345",
-    enable_page_level_ads: true
-  });
-</script>
 <!-- GOOGLE SIGN-IN -->
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 

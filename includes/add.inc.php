@@ -39,6 +39,7 @@ if(isset($_POST['submit']))
                   $dest="../assets/Products/";
                   $time = date("Y-m-d H:i:s");
                   $ppnewname=$time."-".$pn.'.'.'jpg';
+                  /*
                   $im = new Imagick($pptn);
 
                  // Optimize the image layers
@@ -50,6 +51,8 @@ if(isset($_POST['submit']))
 
                 // Write the image back
                   $im->writeImages($dest.$ppnewname, true);
+                  */
+                  move_uploaded_file($pptn, $dest.$ppnewname);
                   $sql="INSERT INTO advertisements(user_uid,Product_Name,Product_Type,Product_Description,time_since_purchase,Product_Pic,Product_Price)VALUES('$unm','$pn','$pt','$pds','$date','$ppnewname',$pp);";
                   $result=mysqli_query($conn,$sql);
                   if($result===false)
